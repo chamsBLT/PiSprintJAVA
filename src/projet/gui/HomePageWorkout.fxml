@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="525.0" prefWidth="932.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.HomePageWorkoutController">
+   <children>
+      <TableView fx:id="table_arms" layoutX="68.0" layoutY="39.0" onMouseClicked="#showDetails" prefHeight="200.0" prefWidth="168.0">
+        <columns>
+          <TableColumn fx:id="colNameArms" prefWidth="165.5999984741211" text="Arms" />
+            <TableColumn fx:id="colNbr_series" minWidth="0.0" prefWidth="0.0" />
+            <TableColumn fx:id="colDescription" minWidth="0.0" prefWidth="3.0517578125E-5" />
+            <TableColumn fx:id="colDuree_serie" minWidth="0.0" prefWidth="1.5999755859375" />
+        </columns>
+      </TableView>
+      <TableView fx:id="table_Legs" layoutX="68.0" layoutY="287.0" onMouseClicked="#showDetails" prefHeight="200.0" prefWidth="168.0">
+        <columns>
+          <TableColumn fx:id="colNameLegs" prefWidth="165.5999984741211" text="Legs" />
+        </columns>
+      </TableView>
+      <TableView fx:id="table_Glutes" layoutX="266.0" layoutY="287.0" onMouseClicked="#showDetails" prefHeight="200.0" prefWidth="168.0">
+        <columns>
+          <TableColumn fx:id="colNameGlutes" prefWidth="167.19998168945312" text="Glutes" />
+        </columns>
+      </TableView>
+      <TableView fx:id="table_Shoulders" layoutX="266.0" layoutY="39.0" onMouseClicked="#showDetails" prefHeight="200.0" prefWidth="168.0">
+        <columns>
+          <TableColumn fx:id="colNameShoulders" prefWidth="167.19998168945312" text="Shoulders" />
+        </columns>
+      </TableView>
+      <TableView fx:id="table_Back" layoutX="466.0" layoutY="39.0" onMouseClicked="#showDetails" prefHeight="200.0" prefWidth="168.0">
+        <columns>
+          <TableColumn fx:id="colNameBack" prefWidth="166.39999389648438" text="Back" />
+        </columns>
+      </TableView>
+      <TableView fx:id="table_Abdominals" layoutX="466.0" layoutY="287.0" onMouseClicked="#showDetails" prefHeight="200.0" prefWidth="168.0">
+        <columns>
+          <TableColumn fx:id="colNameAbdominals" prefWidth="167.19998168945312" text="Abdominals" />
+        </columns>
+      </TableView>
+      <TextField fx:id="tfHnbr_series" editable="false" layoutX="769.0" layoutY="39.0" />
+      <TextField fx:id="tfHduree_serie" editable="false" layoutX="769.0" layoutY="80.0" />
+      <TextArea fx:id="tfHdesciption" editable="false" layoutX="769.0" layoutY="131.0" prefHeight="200.0" prefWidth="149.0" />
+      <Button fx:id="btnRetour" layoutX="769.0" layoutY="462.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Retour" />
+      <Button fx:id="btwTansitionGRUDW" layoutX="769.0" layoutY="424.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="149.0" text="Gestion des exercices" />
+      <Label layoutX="666.0" layoutY="43.0" text="Nombre de séries" />
+      <Label layoutX="667.0" layoutY="84.0" text="Durée de série" />
+      <Label layoutX="667.0" layoutY="130.0" text="Description" />
+   </children>
+</AnchorPane>

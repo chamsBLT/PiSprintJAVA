@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="940.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.ShowWorkoutController">
+   <children>
+      <TableView fx:id="table_workout" layoutX="360.0" layoutY="34.0" onMouseClicked="#getSelectedWorkout" prefHeight="366.0" prefWidth="514.0">
+        <columns>
+          <TableColumn fx:id="colID" prefWidth="75.0" text="id" />
+          <TableColumn fx:id="colNbr_series" prefWidth="75.0" text="nb series" />
+            <TableColumn fx:id="colDuree_serie" prefWidth="75.0" text="duree serie" />
+            <TableColumn fx:id="colBody_part" prefWidth="75.0" text="muscle" />
+            <TableColumn fx:id="colName" prefWidth="125.60009765625" text="name" />
+            <TableColumn fx:id="colDescription" prefWidth="75.0" text="desc" />
+        </columns>
+      </TableView>
+      <TextField fx:id="tfGwid" layoutX="102.0" layoutY="34.0" />
+      <TextField fx:id="tfGwname" layoutX="102.0" layoutY="83.0" />
+      <TextField fx:id="tfGwnbr_series" layoutX="102.0" layoutY="135.0" />
+      <TextField fx:id="tfGwduree_serie" layoutX="102.0" layoutY="188.0" />
+      <TextArea fx:id="tfGwdesciption" layoutX="102.0" layoutY="285.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="btnSuppWorkout" layoutX="361.0" layoutY="495.0" mnemonicParsing="false" onAction="#supprimerWorkout" prefHeight="26.0" prefWidth="123.0" text="Supprimer" />
+      <Button fx:id="btnModifWorkout" layoutX="361.0" layoutY="460.0" mnemonicParsing="false" onAction="#modifierWorkout" prefHeight="26.0" prefWidth="123.0" text="Modifier" />
+      <Label layoutX="14.0" layoutY="38.0" text="id" />
+      <Label layoutX="14.0" layoutY="87.0" text="Nom" />
+      <Label layoutX="14.0" layoutY="139.0" text="Nbr series" />
+      <Label layoutX="14.0" layoutY="192.0" text="Duree serie" />
+      <Label layoutX="14.0" layoutY="240.0" text="Muscle" />
+      <Label layoutX="14.0" layoutY="285.0" text="Description" />
+      <Button fx:id="btnAjtWorkout" layoutX="361.0" layoutY="425.0" mnemonicParsing="false" onAction="#ajouterWorkout" prefHeight="26.0" prefWidth="123.0" text="Ajouter" />
+      <ComboBox fx:id="tfGwbody_part" layoutX="101.0" layoutY="236.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>
