@@ -33,10 +33,11 @@
             <TableColumn fx:id="colSnacks" prefWidth="206.39990234375" text="Snacks" />
         </columns>
       </TableView>
-      <Button fx:id="btnAjtDiet" layoutX="809.0" layoutY="220.0" mnemonicParsing="false" onAction="#ajouterDiet" prefHeight="26.0" prefWidth="116.0" text="Ajouter" />
+      <Button fx:id="btnAjtDiet" layoutX="667.0" layoutY="252.0" mnemonicParsing="false" onAction="#ajouterDiet" prefHeight="26.0" prefWidth="116.0" text="Ajouter" />
       <Button fx:id="btnModDiet" layoutX="809.0" layoutY="252.0" mnemonicParsing="false" onAction="#modifierDiet" prefHeight="26.0" prefWidth="116.0" text="Modifier" />
-      <Button fx:id="btnSuppDiet" layoutX="808.0" layoutY="284.0" mnemonicParsing="false" onAction="#supprimerDiet" prefHeight="26.0" prefWidth="116.0" text="Supprimer" />
+      <Button fx:id="btnSuppDiet" layoutX="667.0" layoutY="297.0" mnemonicParsing="false" onAction="#supprimerDiet" prefHeight="26.0" prefWidth="116.0" text="Supprimer" />
       <TextField fx:id="rechercheDiet" layoutX="94.0" layoutY="298.0" />
       <Label layoutX="22.0" layoutY="302.0" text="Recherche" />
+      <Button fx:id="btnRetour" layoutX="809.0" layoutY="298.0" mnemonicParsing="false" onAction="#mainTransition" prefHeight="26.0" prefWidth="116.0" text="Retour" />
    </children>
 </AnchorPane>

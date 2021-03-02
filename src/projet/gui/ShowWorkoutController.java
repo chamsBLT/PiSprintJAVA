@@ -5,15 +5,20 @@
  */
 package projet.gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
@@ -78,6 +83,8 @@ public class ShowWorkoutController implements Initializable {
     private TextField rechercheWorkout;
     @FXML
     private ListView<Integer> listStats;
+    @FXML
+    private Button btnRetour;
     
      
     @FXML
@@ -233,6 +240,18 @@ public class ShowWorkoutController implements Initializable {
          majTable();
          recherche_workout();
          ShowStats();
+    }
+
+    @FXML
+    private void workoutmainTransition(ActionEvent event) {
+      try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePageWorkout.fxml"));
+            Parent root = loader.load();
+            btnRetour.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }  
+        
     }
    
 }

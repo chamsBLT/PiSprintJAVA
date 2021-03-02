@@ -5,8 +5,11 @@
  */
 package projet.gui;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -19,6 +22,9 @@ import javafx.scene.layout.AnchorPane;
 import projet.entities.workout;
 import projet.services.workoutMETIER;
 import java.util.stream.Collectors;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 /**
  * FXML Controller class
  *
@@ -143,6 +149,28 @@ public class HomePageWorkoutController implements Initializable {
         tfHnbr_series.setText(listWd.stream().map(workout::getNbr_series).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
         tfHduree_serie.setText(listWd.stream().map(workout::getDuree_serie).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
         tfHdesciption.setText(listWd.stream().map(workout::getDescription).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
+    }
+
+    @FXML
+    private void retourhomeNavigation(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
+            Parent root = loader.load();
+            btwTansitionGRUDW.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }    
+    }
+
+    @FXML
+    private void crudNavigation(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowWorkout.fxml"));
+            Parent root = loader.load();
+            btnRetour.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }    
     }
  
 }

@@ -37,10 +37,11 @@ public class HomeController implements Initializable {
         // TODO
     }    
 
+
     @FXML
-    private void WorkoutPageNavigation(ActionEvent event) {
+    private void AfficherWorkoutNavigation(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AddWorkout.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePageWorkout.fxml"));
             Parent root = loader.load();
             btnWorkout.getScene().setRoot(root);
         } catch (IOException ex) {
@@ -49,11 +50,11 @@ public class HomeController implements Initializable {
     }
 
     @FXML
-    private void AfficherWorkoutNavigation(ActionEvent event) {
+    private void AfficherDietNavigation(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowWorkout.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowDiet.fxml"));
             Parent root = loader.load();
-            btnWorkout.getScene().setRoot(root);
+            btnDiet.getScene().setRoot(root);
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
