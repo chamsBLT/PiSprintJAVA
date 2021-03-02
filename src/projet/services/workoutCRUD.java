@@ -26,7 +26,7 @@ public class workoutCRUD {
              String requete ="INSERT INTO workout (id,nbr_series,duree_serie,body_part,description,name)" + "VALUES (?,?,?,?,?,?)";
              PreparedStatement pst =
                      new MyConnection().cn.prepareStatement(requete);
-                     pst.setInt(1, w.getNbr_series());
+                     pst.setInt(1, w.getId());
                      pst.setInt(2, w.getNbr_series());
                      pst.setInt(3, w.getDuree_serie());
                      pst.setString(4, w.getBody_part());

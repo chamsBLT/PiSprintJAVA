@@ -29,6 +29,21 @@ public class workout {
         this.description = description;
         this.name = name;
     }
+    
+    public workout(String name){
+       this.name = name;   
+    }
+    
+    public workout(int id){
+       this.id=id;
+    }
+    
+    
+    public workout(int nbr_series, int duree_serie, String description) {
+        this.nbr_series = nbr_series;
+        this.duree_serie = duree_serie; 
+        this.description = description;
+    }
 
     
     public String getBody_part() {

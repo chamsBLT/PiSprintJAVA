@@ -21,7 +21,7 @@ import projet.tools.MyConnection;
  */
 public class dietCRUD {
     
-        public void addDiet(diet d){
+    public void addDiet(diet d){
          try {
              String requete ="INSERT INTO diet (id,breakfast,lunch,dinner,snacks,calories)" + "VALUES (?,?,?,?,?,?)";
              PreparedStatement pst =

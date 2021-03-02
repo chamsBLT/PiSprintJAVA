@@ -9,11 +9,14 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -22,6 +25,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import projet.entities.workout;
 import projet.services.workoutCRUD;
+import projet.services.workoutMETIER;
 
 /**
  * FXML Controller class
@@ -31,7 +35,6 @@ import projet.services.workoutCRUD;
 public class ShowWorkoutController implements Initializable {
 
     
-    ObservableList<workout> listW;
     @FXML
     private TableView<workout> table_workout;
     @FXML
@@ -65,16 +68,23 @@ public class ShowWorkoutController implements Initializable {
     @FXML
     private Button btnAjtWorkout;
     
+    ObservableList<Integer> listW1;
+    ObservableList<workout> listW;
+    ObservableList<workout> dataList;
+    
     int index = -1; 
     ObservableList body_part_list = FXCollections.observableArrayList();
+    @FXML
+    private TextField rechercheWorkout;
+    @FXML
+    private ListView<Integer> listStats;
     
      
     @FXML
     private void getSelectedWorkout(MouseEvent event) {
         
         index = table_workout.getSelectionModel().getSelectedIndex();
-        if(index <=-1){
-        
+        if(index <=-1){       
             return;
         }
         
@@ -134,6 +144,7 @@ public class ShowWorkoutController implements Initializable {
             workoutCRUD wcd = new workoutCRUD();
             wcd.addWorkout(w);
             majTable();
+            recherche_workout();
     }
     
     
@@ -155,8 +166,10 @@ public class ShowWorkoutController implements Initializable {
             workoutCRUD wcd = new workoutCRUD();
             wcd.editWorkout(w);
             majTable();
+            recherche_workout();
     }
-      
+    
+    
     @FXML
     private void supprimerWorkout(ActionEvent event) {
        
@@ -167,12 +180,59 @@ public class ShowWorkoutController implements Initializable {
             workoutCRUD wcd = new workoutCRUD();
             wcd.deleteWorkout(mID);
             majTable();
+            recherche_workout();
     }
     
+    
+     private void recherche_workout() {   
+            colID.setCellValueFactory(new PropertyValueFactory<workout ,Integer>("id"));
+            colNbr_series.setCellValueFactory(new PropertyValueFactory<workout ,Integer>("nbr_series"));
+            colDuree_serie.setCellValueFactory(new PropertyValueFactory<workout ,Integer>("duree_serie"));
+            colBody_part.setCellValueFactory(new PropertyValueFactory<workout ,String>("body_part"));
+            colDescription.setCellValueFactory(new PropertyValueFactory<workout ,String>("description"));
+            colName.setCellValueFactory(new PropertyValueFactory<workout ,String>("name"));
+        
+             workoutCRUD wc = new workoutCRUD();
+             dataList = wc.showWorkout();
+             table_workout.setItems(dataList);
+             
+             FilteredList<workout> filteredData = new FilteredList<>(dataList, b -> true);  
+             rechercheWorkout.textProperty().addListener((observable, oldValue, newValue) -> {
+             filteredData.setPredicate(workout -> {
+                    if (newValue == null || newValue.isEmpty()) {
+                        return true;
+                    }    
+    
+                   String lowerCaseFilter = newValue.toLowerCase();
+    
+                    if (workout.getBody_part().toLowerCase().indexOf(lowerCaseFilter) != -1) {
+                        return true; 
+                    } 
+                    else if (workout.getName().toLowerCase().indexOf(lowerCaseFilter) != -1) 
+                        return true;
+                                        
+                    else  
+                       return false; 
+                 });
+                 });  
+             SortedList<workout> sortedData = new SortedList<>(filteredData);  
+             sortedData.comparatorProperty().bind(table_workout.comparatorProperty());  
+             table_workout.setItems(sortedData);      
+    }
+    
+     void ShowStats(){
+         workoutMETIER wm = new workoutMETIER();
+         listW1 = wm.showWorkoutStats();
+         listStats.setItems(listW1);     
+     
+     }
+     
       @Override
     public void initialize(URL url, ResourceBundle rb) {
          afficherComboBox();
          majTable();
+         recherche_workout();
+         ShowStats();
     }
    
 }

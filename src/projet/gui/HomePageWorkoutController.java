@@ -11,15 +11,14 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import projet.entities.workout;
 import projet.services.workoutMETIER;
-
+import java.util.stream.Collectors;
 /**
  * FXML Controller class
  *
@@ -27,19 +26,8 @@ import projet.services.workoutMETIER;
  */
 public class HomePageWorkoutController implements Initializable {
 
-    ObservableList<workout> listW;
-    @FXML
-    private TableView<workout> table_arms;
-    @FXML
-    private TableView<workout> table_Legs;
-    @FXML
-    private TableView<workout> table_Glutes;
-    @FXML
-    private TableView<workout> table_Shoulders;
-    @FXML
-    private TableView<workout> table_Back;
-    @FXML
-    private TableView<workout> table_Abdominals;
+    ObservableList<String> listW;
+    ObservableList<workout> listWd;
     @FXML
     private TextField tfHnbr_series;
     @FXML
@@ -50,109 +38,111 @@ public class HomePageWorkoutController implements Initializable {
     private Button btnRetour;
     @FXML
     private Button btwTansitionGRUDW;
-    
     @FXML
-    private TableColumn<workout, String> colNameArms;
+    private AnchorPane listview;
     @FXML
-    private TableColumn<workout, Integer> colNbr_series;
+    private ListView<String> ListW_arms;
     @FXML
-    private TableColumn<workout, Integer> colDuree_serie;
+    private ListView<String> ListW_back;
     @FXML
-    private TableColumn<workout, String> colDescription;
-    
-    
+    private ListView<String> ListW_legs;
     @FXML
-    private TableColumn<workout, String> colNameLegs;
+    private ListView<String> ListW_glutes;
     @FXML
-    private TableColumn<workout, String> colNameGlutes;
+    private ListView<String> ListW_shoulders;
     @FXML
-    private TableColumn<workout, String> colNameShoulders;
-    @FXML
-    private TableColumn<workout, String> colNameBack;
-    @FXML
-    private TableColumn<workout, String> colNameAbdominals;
-
-    int index = -1;
-    
-    public void majTableArms(){
-        String muscle = "arms";  
-        colNameArms.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colNbr_series.setCellValueFactory(new PropertyValueFactory<>("nbr_series"));
-        colDuree_serie.setCellValueFactory(new PropertyValueFactory<>("duree_serie"));
-        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
-        
-        workoutMETIER wm = new workoutMETIER();
-        listW = wm.showWorkoutByMuscle(muscle);
-        table_arms.setItems(listW);
-    }
-        
-    public void majTableShoulders(){
-        String muscle = "shoulders";  
-        colNameShoulders.setCellValueFactory(new PropertyValueFactory<>("name"));
-        
-        workoutMETIER wm = new workoutMETIER();
-        listW = wm.showWorkoutByMuscle(muscle);
-        table_Shoulders.setItems(listW);
-    }
-        
-    public void majTableBack(){
-        String muscle = "back";  
-        colNameBack.setCellValueFactory(new PropertyValueFactory<>("name"));
-        
-        workoutMETIER wm = new workoutMETIER();
-        listW = wm.showWorkoutByMuscle(muscle);
-        table_Back.setItems(listW);
-    }
-        
-    public void majTableLegs(){
-        String muscle = "legs";  
-        colNameLegs.setCellValueFactory(new PropertyValueFactory<>("name"));
-        
-        workoutMETIER wm = new workoutMETIER();
-        listW = wm.showWorkoutByMuscle(muscle);
-        table_Legs.setItems(listW);
-    }
-   
-    public void majTableGlutes(){
-        String muscle = "glutes";  
-        colNameGlutes.setCellValueFactory(new PropertyValueFactory<>("name"));
-        
-        workoutMETIER wm = new workoutMETIER();
-        listW = wm.showWorkoutByMuscle(muscle);
-        table_Glutes.setItems(listW);
-    }
-        
-    public void majTableAbdominals(){
-        String muscle = "abdominals";  
-        colNameAbdominals.setCellValueFactory(new PropertyValueFactory<>("name"));
-        
-        workoutMETIER wm = new workoutMETIER();
-        listW = wm.showWorkoutByMuscle(muscle);
-        table_Abdominals.setItems(listW);
-    }
-        
+    private ListView<String> ListW_abdominals;
       
+        
+        public void workoutDetails(){      
+        workoutMETIER wm = new workoutMETIER();
+        
+            if(!ListW_arms.hasProperties()){   
+                listW = wm.showWorkoutByMuscle("arms");
+                ListW_arms.setItems(listW);       
+            } 
+            if(!ListW_shoulders.hasProperties()){   
+                listW = wm.showWorkoutByMuscle("shoulders");
+                ListW_shoulders.setItems(listW);       
+            } 
+            if(!ListW_back.hasProperties()) {
+                listW = wm.showWorkoutByMuscle("back");
+                ListW_back.setItems(listW); 
+            }
+            if(!ListW_legs.hasProperties()) {
+                listW = wm.showWorkoutByMuscle("legs");
+                ListW_legs.setItems(listW); 
+            }
+            if(!ListW_glutes.hasProperties()){   
+                listW = wm.showWorkoutByMuscle("glutes");
+                ListW_glutes.setItems(listW);       
+            } 
+            if(!ListW_abdominals.hasProperties()) {
+                listW = wm.showWorkoutByMuscle("abdominals");
+                ListW_abdominals.setItems(listW); 
+            }        
+        }
+        
+        
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        majTableArms();
-        majTableShoulders();
-        majTableBack();
-        majTableGlutes();
-        majTableAbdominals();
+        workoutDetails();
+        
     }    
 
     @FXML
-    private void showDetails(MouseEvent event) {
-        index = table_arms.getSelectionModel().getSelectedIndex();
-        if(index <=-1){
-            return;
-        }
-        
-        tfHnbr_series.setText(colNbr_series.getCellData(index).toString());
-        tfHduree_serie.setText(colDuree_serie.getCellData(index).toString());
-        tfHdesciption.setText(colDescription.getCellData(index));
-        
+    private void afficherWorkoutDetailsArms(MouseEvent event) {
+        workoutMETIER wm = new workoutMETIER();
+        listWd = wm.showWorkoutByMuscleDetails(ListW_arms.getSelectionModel().getSelectedItem());
+        tfHnbr_series.setText(listWd.stream().map(workout::getNbr_series).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
+        tfHduree_serie.setText(listWd.stream().map(workout::getDuree_serie).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
+        tfHdesciption.setText(listWd.stream().map(workout::getDescription).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
     }
 
-    
+    @FXML
+    private void afficherWorkoutDetailsBack(MouseEvent event) {
+        workoutMETIER wm = new workoutMETIER();
+        listWd = wm.showWorkoutByMuscleDetails(ListW_back.getSelectionModel().getSelectedItem());
+        tfHnbr_series.setText(listWd.stream().map(workout::getNbr_series).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
+        tfHduree_serie.setText(listWd.stream().map(workout::getDuree_serie).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
+        tfHdesciption.setText(listWd.stream().map(workout::getDescription).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
+    }
+
+    @FXML
+    private void afficherWorkoutDetailsLegs(MouseEvent event) {
+        workoutMETIER wm = new workoutMETIER();
+        listWd = wm.showWorkoutByMuscleDetails(ListW_legs.getSelectionModel().getSelectedItem());
+        tfHnbr_series.setText(listWd.stream().map(workout::getNbr_series).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
+        tfHduree_serie.setText(listWd.stream().map(workout::getDuree_serie).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
+        tfHdesciption.setText(listWd.stream().map(workout::getDescription).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
+    }
+
+    @FXML
+    private void afficherWorkoutDetailsGlutes(MouseEvent event) {
+        workoutMETIER wm = new workoutMETIER();
+        listWd = wm.showWorkoutByMuscleDetails(ListW_glutes.getSelectionModel().getSelectedItem());
+        tfHnbr_series.setText(listWd.stream().map(workout::getNbr_series).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
+        tfHduree_serie.setText(listWd.stream().map(workout::getDuree_serie).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
+        tfHdesciption.setText(listWd.stream().map(workout::getDescription).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
+    }
+
+    @FXML
+    private void afficherWorkoutDetailsShoulders(MouseEvent event) {
+        workoutMETIER wm = new workoutMETIER();
+        listWd = wm.showWorkoutByMuscleDetails(ListW_shoulders.getSelectionModel().getSelectedItem());
+        tfHnbr_series.setText(listWd.stream().map(workout::getNbr_series).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
+        tfHduree_serie.setText(listWd.stream().map(workout::getDuree_serie).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
+        tfHdesciption.setText(listWd.stream().map(workout::getDescription).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
+    }
+
+    @FXML
+    private void afficherWorkoutDetailsAbdominals(MouseEvent event) {
+        workoutMETIER wm = new workoutMETIER();
+        listWd = wm.showWorkoutByMuscleDetails(ListW_abdominals.getSelectionModel().getSelectedItem());
+        tfHnbr_series.setText(listWd.stream().map(workout::getNbr_series).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
+        tfHduree_serie.setText(listWd.stream().map(workout::getDuree_serie).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
+        tfHdesciption.setText(listWd.stream().map(workout::getDescription).collect(Collectors.toList()).toString().replace("[", "").replace("]", ""));
+    }
+ 
 }
