@@ -134,16 +134,14 @@ public class ShowDietController implements Initializable {
     @FXML
     private void ajouterDiet(ActionEvent event) {
             
-            String rId1 = tfId.getText();
             String rBreakfast = tfBreakfast.getText();
             String rLunch = tfLunch.getText(); 
             String rDinner = tfDinner.getText();
             String rSnacks = tfSnacks.getText();
             String rCalories = cbCalories.getValue();
             
-            int rId=Integer.parseInt(rId1);
                  
-            diet d = new diet(rId,rBreakfast,rLunch,rDinner,rSnacks,rCalories);
+            diet d = new diet(rBreakfast,rLunch,rDinner,rSnacks,rCalories);
             dietCRUD dcd = new dietCRUD();
             dcd.addDiet(d);
             majTable();

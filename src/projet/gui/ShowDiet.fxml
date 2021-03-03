@@ -17,7 +17,7 @@
       <Label layoutX="495.0" layoutY="92.0" text="Dinner" />
       <Label layoutX="725.0" layoutY="92.0" text="Snacks" />
       <Label layoutX="552.0" layoutY="42.0" text="Calories" />
-      <TextField fx:id="tfId" layoutX="207.0" layoutY="38.0" />
+      <TextField fx:id="tfId" editable="false" layoutX="207.0" layoutY="38.0" opacity="0.2" />
       <TextArea fx:id="tfBreakfast" layoutX="22.0" layoutY="110.0" prefHeight="97.0" prefWidth="200.0" />
       <TextArea fx:id="tfLunch" layoutX="266.0" layoutY="110.0" prefHeight="98.0" prefWidth="200.0" />
       <TextArea fx:id="tfDinner" layoutX="494.0" layoutY="110.0" prefHeight="98.0" prefWidth="200.0" />

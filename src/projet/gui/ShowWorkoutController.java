@@ -136,18 +136,16 @@ public class ShowWorkoutController implements Initializable {
     
     @FXML
     private void ajouterWorkout(ActionEvent event) {
-            String rId1 = tfGwid.getText();
             String rNbr_series1 = tfGwnbr_series.getText();
             String rDuree_serie1 = tfGwduree_serie.getText(); 
             String rBody_part = tfGwbody_part.getValue();
             String rDescription = tfGwdesciption.getText();
             String rName = tfGwname.getText();
             
-            int rId=Integer.parseInt(rId1);
             int rNbr_series=Integer.parseInt(rNbr_series1);
             int rDuree_serie=Integer.parseInt(rDuree_serie1);
                  
-            workout w = new workout(rId,rNbr_series,rDuree_serie,rBody_part,rDescription,rName);
+            workout w = new workout(rNbr_series,rDuree_serie,rBody_part,rDescription,rName);
             workoutCRUD wcd = new workoutCRUD();
             wcd.addWorkout(w);
             majTable();
@@ -234,13 +232,6 @@ public class ShowWorkoutController implements Initializable {
      
      }
      
-      @Override
-    public void initialize(URL url, ResourceBundle rb) {
-         afficherComboBox();
-         majTable();
-         recherche_workout();
-         ShowStats();
-    }
 
     @FXML
     private void workoutmainTransition(ActionEvent event) {
@@ -252,6 +243,14 @@ public class ShowWorkoutController implements Initializable {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }  
         
+    }
+    
+          @Override
+      public void initialize(URL url, ResourceBundle rb) {
+         afficherComboBox();
+         majTable();
+         recherche_workout();
+         ShowStats();
     }
    
 }

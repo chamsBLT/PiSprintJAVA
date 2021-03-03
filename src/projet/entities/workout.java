@@ -30,6 +30,14 @@ public class workout {
         this.name = name;
     }
     
+       public workout( int nbr_series, int duree_serie, String body_part, String description,String name) {
+        this.nbr_series = nbr_series;
+        this.duree_serie = duree_serie;
+        this.body_part = body_part;
+        this.description = description;
+        this.name = name;
+    }
+    
     public workout(String name){
        this.name = name;   
     }

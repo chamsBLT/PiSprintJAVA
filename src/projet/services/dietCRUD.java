@@ -23,15 +23,14 @@ public class dietCRUD {
     
     public void addDiet(diet d){
          try {
-             String requete ="INSERT INTO diet (id,breakfast,lunch,dinner,snacks,calories)" + "VALUES (?,?,?,?,?,?)";
+             String requete ="INSERT INTO diet (breakfast,lunch,dinner,snacks,calories)" + "VALUES (?,?,?,?,?)";
              PreparedStatement pst =
                      new MyConnection().cn.prepareStatement(requete);
-                     pst.setInt(1, d.getId() );
-                     pst.setString(2, d.getBreakfast());
-                     pst.setString(3, d.getLunch());
-                     pst.setString(4, d.getDinner());
-                     pst.setString(5, d.getSnacks());
-                     pst.setString(6, d.getCalories());
+                     pst.setString(1, d.getBreakfast());
+                     pst.setString(2, d.getLunch());
+                     pst.setString(3, d.getDinner());
+                     pst.setString(4, d.getSnacks());
+                     pst.setString(5, d.getCalories());
                      pst.executeUpdate();
                      
                      System.out.println("Diet ajoutée!");
@@ -63,16 +62,15 @@ public class dietCRUD {
     public void editDiet(diet d){
         try {
 
-            String requete ="UPDATE diet SET id= ? , breakfast= ? ,lunch= ? ,dinner= ? ,snacks= ? ,calories= ? where id = ? ";
+            String requete ="UPDATE diet SET breakfast= ? ,lunch= ? ,dinner= ? ,snacks= ? ,calories= ? where id = ? ";
             PreparedStatement pst =
                     new MyConnection().cn.prepareStatement(requete);   
-                    pst.setInt(1, d.getId());
-                    pst.setString(2, d.getBreakfast());
-                    pst.setString(3, d.getLunch());
-                    pst.setString(4, d.getDinner());
-                    pst.setString(5, d.getSnacks());
-                    pst.setString(6, d.getCalories());
-                    pst.setInt(7, d.getId());
+                    pst.setString(1, d.getBreakfast());
+                    pst.setString(2, d.getLunch());
+                    pst.setString(3, d.getDinner());
+                    pst.setString(4, d.getSnacks());
+                    pst.setString(5, d.getCalories());
+                    pst.setInt(6, d.getId());
                     pst.executeUpdate();
                     
                  System.out.println("Diet modifiée!");

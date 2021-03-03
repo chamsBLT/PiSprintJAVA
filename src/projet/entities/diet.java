@@ -29,7 +29,16 @@ public class diet {
         this.snacks = snacks;
         this.calories = calories;
     }
+    
+        public diet(String breakfast, String lunch, String dinner, String snacks, String calories) {
+        this.breakfast = breakfast;
+        this.lunch = lunch;
+        this.dinner = dinner;
+        this.snacks = snacks;
+        this.calories = calories;
+    }
 
+        
     public int getId() {
         return id;
     }

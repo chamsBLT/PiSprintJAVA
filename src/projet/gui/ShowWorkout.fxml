@@ -22,7 +22,7 @@
             <TableColumn fx:id="colDescription" prefWidth="75.0" text="desc" />
         </columns>
       </TableView>
-      <TextField fx:id="tfGwid" layoutX="102.0" layoutY="34.0" />
+      <TextField fx:id="tfGwid" editable="false" layoutX="102.0" layoutY="34.0" />
       <TextField fx:id="tfGwname" layoutX="102.0" layoutY="83.0" />
       <TextField fx:id="tfGwnbr_series" layoutX="102.0" layoutY="135.0" />
       <TextField fx:id="tfGwduree_serie" layoutX="102.0" layoutY="188.0" />
