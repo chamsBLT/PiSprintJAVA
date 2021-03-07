@@ -12,7 +12,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="1000.0" prefWidth="1620.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.ShowWorkoutController">
+<AnchorPane id="AnchorPane" onMouseClicked="#resetValues" prefHeight="1000.0" prefWidth="1620.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.ShowWorkoutController">
    <children>
       <TableView fx:id="table_workout" layoutX="895.0" layoutY="254.0" onMouseClicked="#getSelectedWorkout" prefHeight="366.0" prefWidth="504.0">
         <columns>

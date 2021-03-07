@@ -172,7 +172,7 @@ public class ShowWorkoutController implements Initializable {
             
             int rNbr_series=Integer.parseInt(rNbr_series1);
             int rDuree_serie=Integer.parseInt(rDuree_serie1);
-                 
+
             workout w = new workout(rNbr_series,rDuree_serie,rBody_part,rDescription,rName);
             workoutCRUD wcd = new workoutCRUD();
             wcd.addWorkout(w);
@@ -194,7 +194,7 @@ public class ShowWorkoutController implements Initializable {
             int mID=Integer.parseInt(mID1);
             int mNbr_series=Integer.parseInt(mNbr_series1);
             int mDuree_serie=Integer.parseInt(mDuree_serie1);
-                 
+
             workout w = new workout(mID,mNbr_series,mDuree_serie,mBody_part,mDescription,mName);
             workoutCRUD wcd = new workoutCRUD();
             wcd.editWorkout(w);
@@ -341,6 +341,18 @@ public class ShowWorkoutController implements Initializable {
          majTable();
          recherche_workout();
          ShowStats();
+         
+          tfGwdesciption.setWrapText(true);
+    }
+
+    @FXML
+    private void resetValues(MouseEvent event) {
+        tfGwid.setText(null);
+        tfGwname.setText(null);
+        tfGwnbr_series.setText(null);
+        tfGwduree_serie.setText(null);
+        tfGwbody_part.setValue(null);
+        tfGwdesciption.setText(null);
     }
 
 }

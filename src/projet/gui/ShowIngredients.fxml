@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="projet.gui.ShowIngredientsController">
+   <children>
+      <TextField fx:id="tfIngId" editable="false" layoutX="151.0" layoutY="67.0" />
+      <TextField fx:id="tfIngName" layoutX="151.0" layoutY="118.0" />
+      <ComboBox fx:id="cbIngCategory" layoutX="150.0" layoutY="167.0" prefWidth="150.0" />
+      <Label layoutX="76.0" layoutY="71.0" text="ID" />
+      <Label layoutX="78.0" layoutY="122.0" text="Name" />
+      <Label layoutX="82.0" layoutY="171.0" text="Category" />
+      <Button fx:id="btnDeleteIng" layoutX="512.0" layoutY="306.0" mnemonicParsing="false" onAction="#SupprimerIngredient" text="Supprimer" />
+      <Button fx:id="btnEditIng" layoutX="512.0" layoutY="264.0" mnemonicParsing="false" onAction="#ModifierIngredient" prefHeight="26.0" prefWidth="71.0" text="Modifier" />
+      <Button fx:id="btnAddIng" layoutX="512.0" layoutY="224.0" mnemonicParsing="false" onAction="#AjouterIngredient" prefHeight="26.0" prefWidth="71.0" text="Ajouter" />
+      <Button fx:id="btnFermer" layoutX="512.0" layoutY="346.0" mnemonicParsing="false" onAction="#FermerFenetre" prefHeight="26.0" prefWidth="71.0" text="Fermer" />
+      <TableView fx:id="tabIngredient" layoutX="333.0" layoutY="14.0" prefHeight="200.0" prefWidth="250.0">
+        <columns>
+          <TableColumn fx:id="colIngName" prefWidth="124.800048828125" text="Name" />
+          <TableColumn fx:id="colIngCategory" prefWidth="124.79998779296875" text="Category" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
