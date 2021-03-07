@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -7,6 +8,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane id="AnchorPane" prefHeight="594.0" prefWidth="948.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.ShowDietController">
@@ -17,7 +19,13 @@
       <Label layoutX="495.0" layoutY="92.0" text="Dinner" />
       <Label layoutX="725.0" layoutY="92.0" text="Snacks" />
       <Label layoutX="552.0" layoutY="42.0" text="Calories" />
-      <TextField fx:id="tfId" editable="false" layoutX="207.0" layoutY="38.0" opacity="0.2" />
+      <TextField fx:id="tfId" editable="false" layoutX="207.0" layoutY="38.0">
+         <effect>
+            <Glow />
+         </effect>
+         <cursor>
+            <Cursor fx:constant="DISAPPEAR" />
+         </cursor></TextField>
       <TextArea fx:id="tfBreakfast" layoutX="22.0" layoutY="110.0" prefHeight="97.0" prefWidth="200.0" />
       <TextArea fx:id="tfLunch" layoutX="266.0" layoutY="110.0" prefHeight="98.0" prefWidth="200.0" />
       <TextArea fx:id="tfDinner" layoutX="494.0" layoutY="110.0" prefHeight="98.0" prefWidth="200.0" />

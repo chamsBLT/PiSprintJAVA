@@ -27,6 +27,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import projet.entities.workout;
 import projet.services.workoutCRUD;
@@ -85,6 +87,30 @@ public class ShowWorkoutController implements Initializable {
     private ListView<Integer> listStats;
     @FXML
     private Button btnRetour;
+    @FXML
+    private ImageView BodyFrontView;
+    @FXML
+    private ImageView BodyBackView;
+    @FXML
+    private ImageView iChest;
+    @FXML
+    private ImageView iAbs;
+    @FXML
+    private ImageView iArms1;
+    @FXML
+    private ImageView iShoulders1;
+    @FXML
+    private ImageView iLegs1;
+    @FXML
+    private ImageView iBack;
+    @FXML
+    private ImageView iLegs2;
+    @FXML
+    private ImageView iGlutes;
+    @FXML
+    private ImageView iShoulders2;
+    @FXML
+    private ImageView iArms2;
     
      
     @FXML
@@ -113,7 +139,8 @@ public class ShowWorkoutController implements Initializable {
         String d="legs";
         String e="glutes";
         String f="abdominals";
-        body_part_list.addAll(a,b,c,d,e,f);
+        String g="chest";
+        body_part_list.addAll(a,b,c,d,e,f,g);
         tfGwbody_part.getItems().addAll(body_part_list);
     
     }
@@ -131,6 +158,7 @@ public class ShowWorkoutController implements Initializable {
         workoutCRUD wcd = new workoutCRUD();
         listW = wcd.showWorkout();
         table_workout.setItems(listW);
+        
     }
      
     
@@ -225,13 +253,75 @@ public class ShowWorkoutController implements Initializable {
              table_workout.setItems(sortedData);      
     }
     
-     void ShowStats(){
+    private void ShowStats(){
          workoutMETIER wm = new workoutMETIER();
          listW1 = wm.showWorkoutStats();
-         listStats.setItems(listW1);     
-     
+         listStats.setItems(listW1);      
      }
-     
+    
+    @FXML
+    private void setBodyPartImages(ActionEvent event) {
+      String selectedBp = tfGwbody_part.getValue();
+      
+      Image imArms1 = new Image("/Graphics/Arms1.png");
+      Image imArms2 = new Image("/Graphics/Arms2.png");
+      
+      Image imShoulders1 = new Image("/Graphics/Shoulders1.png");
+      Image imShoulders2 = new Image("/Graphics/Shoulders2.png");
+      
+      Image imAbs = new Image("/Graphics/Abs.png");
+      
+      Image imLegs1 = new Image("/Graphics/Legs1.png");
+      Image imLegs2 = new Image("/Graphics/Legs2.png");
+      
+      Image imGlutes = new Image("/Graphics/Glutes.png");
+      
+      Image imBack = new Image("/Graphics/Back.png");
+      
+      Image imChest = new Image("/Graphics/Chest.png");
+            
+      iArms1.setImage(null);
+      iArms2.setImage(null);
+      iShoulders1.setImage(null);
+      iShoulders2.setImage(null);
+      iAbs.setImage(null);
+      iLegs1.setImage(null);
+      iLegs2.setImage(null);
+      iBack.setImage(null);
+      iGlutes.setImage(null);
+      iChest.setImage(null);
+      
+      switch (selectedBp) {
+            case "arms":
+                iArms1.setImage(imArms1);
+                iArms2.setImage(imArms2);
+                break;
+            case "shoulders":
+                iShoulders1.setImage(imShoulders1);
+                iShoulders2.setImage(imShoulders2);
+                break;
+            case "abdominals":
+                iAbs.setImage(imAbs);
+                break;
+            case "legs":
+                iLegs1.setImage(imLegs1);
+                iLegs2.setImage(imLegs2);
+                break;
+            case "back":
+                iBack.setImage(imBack);
+                break;
+            case "glutes":
+                iGlutes.setImage(imGlutes);
+                break;
+            case "chest":
+                iChest.setImage(imChest);
+                break;
+            default:
+                break;
+        }
+    }
+   
+    
 
     @FXML
     private void workoutmainTransition(ActionEvent event) {
@@ -252,5 +342,5 @@ public class ShowWorkoutController implements Initializable {
          recherche_workout();
          ShowStats();
     }
-   
+
 }
