@@ -18,6 +18,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import projet.entities.ingredient;
 import projet.entities.workout;
 import projet.services.ingredientCRUD;
@@ -50,10 +51,13 @@ public class ShowIngredientsController implements Initializable {
     private TableColumn<ingredient, String> colIngName;
     @FXML
     private TableColumn<ingredient, String> colIngCategory;
+    @FXML
+    private TableColumn<ingredient, Integer> colID;
 
     ObservableList category_list = FXCollections.observableArrayList();
     ObservableList<ingredient> listI;
 
+    int index = -1;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -74,10 +78,29 @@ public class ShowIngredientsController implements Initializable {
 
     @FXML
     private void SupprimerIngredient(ActionEvent event) {
+        String mID1 = tfIngId.getText();
+            
+        int mID=Integer.parseInt(mID1);
+        
+        ingredientCRUD icd = new ingredientCRUD();
+        icd.deleteWorkout(mID);
+        majTable();
     }
 
     @FXML
     private void ModifierIngredient(ActionEvent event) {
+        
+            String mID1 = tfIngId.getText();
+            String mName = tfIngName.getText(); 
+            String mCategory = cbIngCategory.getValue();
+
+            
+            int mID=Integer.parseInt(mID1);
+
+            ingredient i = new ingredient(mID,mName,mCategory);
+            ingredientCRUD icd = new ingredientCRUD();
+            icd.editIngredient(i);
+            majTable();
     }
 
     @FXML
@@ -90,13 +113,9 @@ public class ShowIngredientsController implements Initializable {
             icd.addIngredient(i);
             majTable();
     }
-
-    @FXML
-    private void FermerFenetre(ActionEvent event) {
-    }
     
      public void majTable(){
-        
+        colID.setCellValueFactory(new PropertyValueFactory<ingredient ,Integer>("id"));
         colIngName.setCellValueFactory(new PropertyValueFactory<ingredient ,String>("name"));
         colIngCategory.setCellValueFactory(new PropertyValueFactory<ingredient ,String>("category"));
         
@@ -104,6 +123,23 @@ public class ShowIngredientsController implements Initializable {
         listI = icd.showIngredient();
         tabIngredient.setItems(listI);
      }
+     
 
+    @FXML
+    private void getSelectedIngredient(MouseEvent event) {
+        index = tabIngredient.getSelectionModel().getSelectedIndex();
+        if(index <=-1){       
+            return;
+        }   
+        tfIngId.setText(colID.getCellData(index).toString());
+        tfIngName.setText(colIngName.getCellData(index));
+        cbIngCategory.setValue(colIngCategory.getCellData(index));
+     
+    }
     
-}
+             @FXML
+    private void FermerFenetre(ActionEvent event) {
+    }
+    }
+    
+

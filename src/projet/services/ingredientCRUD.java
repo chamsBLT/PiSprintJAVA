@@ -54,4 +54,37 @@ public class ingredientCRUD {
         }
         return list;
     }
+     
+     
+     public void deleteWorkout(int id){
+        try {
+            String requete ="DELETE FROM ingredient WHERE id = ?";
+            PreparedStatement pst =
+                    new MyConnection().cn.prepareStatement(requete);
+            pst.setInt(1, id);
+            pst.executeUpdate();           
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(workoutCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     
+        public void editIngredient(ingredient i){
+        try {
+
+            String requete ="UPDATE ingredient SET name=? ,category=? where id = ? ";
+            PreparedStatement pst =
+                    new MyConnection().cn.prepareStatement(requete);   ;
+                    pst.setString(1, i.getName());
+                    pst.setString(2, i.getCategory());;
+                    pst.setInt(3, i.getId());
+                    pst.executeUpdate();
+                    
+                 System.out.println("Ingredient modifiée!");
+                     
+        } catch (SQLException ex) {
+            Logger.getLogger(workoutCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
 }

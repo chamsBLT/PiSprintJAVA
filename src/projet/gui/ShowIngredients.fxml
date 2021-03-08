@@ -8,8 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/15.0.1" fx:controller="projet.gui.ShowIngredientsController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.ShowIngredientsController">
    <children>
       <TextField fx:id="tfIngId" editable="false" layoutX="151.0" layoutY="67.0" />
       <TextField fx:id="tfIngName" layoutX="151.0" layoutY="118.0" />
@@ -21,10 +20,11 @@
       <Button fx:id="btnEditIng" layoutX="512.0" layoutY="264.0" mnemonicParsing="false" onAction="#ModifierIngredient" prefHeight="26.0" prefWidth="71.0" text="Modifier" />
       <Button fx:id="btnAddIng" layoutX="512.0" layoutY="224.0" mnemonicParsing="false" onAction="#AjouterIngredient" prefHeight="26.0" prefWidth="71.0" text="Ajouter" />
       <Button fx:id="btnFermer" layoutX="512.0" layoutY="346.0" mnemonicParsing="false" onAction="#FermerFenetre" prefHeight="26.0" prefWidth="71.0" text="Fermer" />
-      <TableView fx:id="tabIngredient" layoutX="333.0" layoutY="14.0" prefHeight="200.0" prefWidth="250.0">
+      <TableView fx:id="tabIngredient" layoutX="333.0" layoutY="14.0" onMouseClicked="#getSelectedIngredient" prefHeight="200.0" prefWidth="250.0">
         <columns>
-          <TableColumn fx:id="colIngName" prefWidth="124.800048828125" text="Name" />
-          <TableColumn fx:id="colIngCategory" prefWidth="124.79998779296875" text="Category" />
+            <TableColumn fx:id="colID" prefWidth="43.199951171875" text="ID" />
+          <TableColumn fx:id="colIngName" prefWidth="127.2000732421875" text="Name" />
+          <TableColumn fx:id="colIngCategory" prefWidth="79.199951171875" text="Category" />
         </columns>
       </TableView>
    </children>
