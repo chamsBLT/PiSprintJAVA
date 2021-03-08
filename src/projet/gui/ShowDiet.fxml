@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -26,11 +25,7 @@
          <cursor>
             <Cursor fx:constant="DISAPPEAR" />
          </cursor></TextField>
-      <TextArea fx:id="tfBreakfast" layoutX="22.0" layoutY="110.0" prefHeight="97.0" prefWidth="200.0" />
-      <TextArea fx:id="tfLunch" layoutX="266.0" layoutY="110.0" prefHeight="98.0" prefWidth="200.0" />
-      <TextArea fx:id="tfDinner" layoutX="494.0" layoutY="110.0" prefHeight="98.0" prefWidth="200.0" />
-      <TextArea fx:id="tfSnacks" layoutX="725.0" layoutY="110.0" prefHeight="98.0" prefWidth="200.0" />
-      <ComboBox fx:id="cbCalories" layoutX="620.0" layoutY="38.0" prefWidth="150.0" />
+      <ComboBox fx:id="cbCalories" layoutX="620.0" layoutY="38.0" onAction="#showAutoCompleteOptions" prefWidth="150.0" />
       <TableView fx:id="table_diet" layoutY="348.0" onMouseClicked="#getSelectedDiet" prefHeight="238.0" prefWidth="948.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="75.0" text="ID" />
@@ -47,5 +42,10 @@
       <TextField fx:id="rechercheDiet" layoutX="94.0" layoutY="298.0" />
       <Label layoutX="22.0" layoutY="302.0" text="Recherche" />
       <Button fx:id="btnRetour" layoutX="809.0" layoutY="298.0" mnemonicParsing="false" onAction="#mainTransition" prefHeight="26.0" prefWidth="116.0" text="Retour" />
+      <TextField fx:id="tfBreakfast" alignment="TOP_LEFT" layoutX="22.0" layoutY="110.0" prefHeight="98.0" prefWidth="200.0" />
+      <TextField fx:id="tfLunch" layoutX="266.0" layoutY="110.0" prefHeight="98.0" prefWidth="200.0" />
+      <TextField fx:id="tfDinner" layoutX="495.0" layoutY="110.0" />
+      <TextField fx:id="tfSnacks" layoutX="725.0" layoutY="110.0" />
+      <Button layoutX="476.0" layoutY="298.0" mnemonicParsing="false" onAction="#CRUDIngTransition" prefHeight="26.0" prefWidth="149.0" text="Gestion des ingrédiants" />
    </children>
 </AnchorPane>

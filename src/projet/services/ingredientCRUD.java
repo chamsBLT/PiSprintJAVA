@@ -24,11 +24,12 @@ public class ingredientCRUD {
     
     public void addIngredient(ingredient i){
          try {
-             String requete ="INSERT INTO ingredient (name,category)" + "VALUES (?,?)";
+             String requete ="INSERT INTO ingredient (name,category,calories_category)" + "VALUES (?,?,?)";
              PreparedStatement pst =
                      new MyConnection().cn.prepareStatement(requete);
                      pst.setString(1, i.getName());
                      pst.setString(2, i.getCategory());
+                     pst.setString(3, i.getCalories_category());
                      pst.executeUpdate();
                      
                      System.out.println("Ingrediant ajoutée!");
@@ -46,7 +47,7 @@ public class ingredientCRUD {
             ResultSet rs = pst.executeQuery();
             
             while(rs.next()){
-                list.add(new ingredient(rs.getInt("id"), rs.getString("name"), rs.getString("category")));
+                list.add(new ingredient(rs.getInt("id"), rs.getString("name"), rs.getString("category"),rs.getString("calories_category")));
             }
             
         } catch (SQLException ex) {
@@ -72,12 +73,13 @@ public class ingredientCRUD {
         public void editIngredient(ingredient i){
         try {
 
-            String requete ="UPDATE ingredient SET name=? ,category=? where id = ? ";
+            String requete ="UPDATE ingredient SET name=? ,category=? ,calories_category=? where id = ? ";
             PreparedStatement pst =
                     new MyConnection().cn.prepareStatement(requete);   ;
                     pst.setString(1, i.getName());
-                    pst.setString(2, i.getCategory());;
-                    pst.setInt(3, i.getId());
+                    pst.setString(2, i.getCategory());
+                    pst.setString(3, i.getCalories_category());
+                    pst.setInt(4, i.getId());
                     pst.executeUpdate();
                     
                  System.out.println("Ingredient modifiée!");
@@ -87,4 +89,81 @@ public class ingredientCRUD {
         }
     
     }
+        
+    public ObservableList<String> showIngredientBreakfast(String CaloriesC){
+        ObservableList<String> list = FXCollections.observableArrayList();
+        try {
+            String requete ="SELECT name FROM ingredient where category like 'breakfast' AND calories_category like ?";
+            PreparedStatement pst =
+                    new MyConnection().cn.prepareStatement(requete);
+                    pst.setString(1, CaloriesC);
+            ResultSet rs = pst.executeQuery();
+            
+            while(rs.next()){
+                list.add(rs.getString("name"));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(workoutCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    
+     public ObservableList<String> showIngredientDinner(String CaloriesC){
+        ObservableList<String> list = FXCollections.observableArrayList();
+        try {
+            String requete ="SELECT name FROM ingredient where category like 'dinner' AND calories_category like ?";
+            PreparedStatement pst =
+                    new MyConnection().cn.prepareStatement(requete);
+                    pst.setString(1, CaloriesC);
+            ResultSet rs = pst.executeQuery();
+            
+            while(rs.next()){
+                list.add(rs.getString("name"));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(workoutCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+     
+     public ObservableList<String> showIngredientLunch(String CaloriesC){
+        ObservableList<String> list = FXCollections.observableArrayList();
+        try {
+            String requete ="SELECT name FROM ingredient where category like 'lunch' AND calories_category like ?";
+            PreparedStatement pst =
+                    new MyConnection().cn.prepareStatement(requete);
+                    pst.setString(1, CaloriesC);
+            ResultSet rs = pst.executeQuery();
+            
+            while(rs.next()){
+                list.add(rs.getString("name"));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(workoutCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    
+     public ObservableList<String> showIngredientSnack(String CaloriesC){
+        ObservableList<String> list = FXCollections.observableArrayList();
+        try {
+            String requete ="SELECT name FROM ingredient where category like 'snack' AND calories_category like ?";
+            PreparedStatement pst =
+                    new MyConnection().cn.prepareStatement(requete);
+                    pst.setString(1, CaloriesC);
+            ResultSet rs = pst.executeQuery();
+            
+            while(rs.next()){
+                list.add(rs.getString("name"));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(workoutCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    
 }

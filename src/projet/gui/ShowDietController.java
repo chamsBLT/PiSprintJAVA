@@ -19,17 +19,20 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
+import org.controlsfx.control.textfield.TextFields;
 import projet.entities.diet;
 import projet.services.dietCRUD;
-import projet.services.workoutCRUD;
+import projet.services.ingredientCRUD;
+
 
 /**
  * FXML Controller class
@@ -41,13 +44,13 @@ public class ShowDietController implements Initializable {
     @FXML
     private TextField tfId;
     @FXML
-    private TextArea tfBreakfast;
+    private TextField tfBreakfast;
     @FXML
-    private TextArea tfLunch;
+    private TextField tfLunch;
     @FXML
-    private TextArea tfDinner;
+    private TextField tfDinner;
     @FXML
-    private TextArea tfSnacks;
+    private TextField tfSnacks;
     @FXML
     private ComboBox<String> cbCalories;
     @FXML
@@ -78,7 +81,10 @@ public class ShowDietController implements Initializable {
     ObservableList calories_list = FXCollections.observableArrayList();
     
     ObservableList<diet> listD;
-    ObservableList<diet> dataList;
+    ObservableList<diet> dataList;   
+    
+
+    
     @FXML
     private Button btnRetour;
     
@@ -139,7 +145,6 @@ public class ShowDietController implements Initializable {
             String rDinner = tfDinner.getText();
             String rSnacks = tfSnacks.getText();
             String rCalories = cbCalories.getValue();
-            
                  
             diet d = new diet(rBreakfast,rLunch,rDinner,rSnacks,rCalories);
             dietCRUD dcd = new dietCRUD();
@@ -226,15 +231,38 @@ public class ShowDietController implements Initializable {
              sortedData.comparatorProperty().bind(table_diet.comparatorProperty());  
              table_diet.setItems(sortedData);      
     }
-    
-    
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        afficherComboBox();
-        majTable();    
-        recherche_diet(); 
-    } 
 
+    @FXML
+    private void showAutoCompleteOptions(ActionEvent event) {
+            ingredientCRUD icd = new ingredientCRUD();
+            
+            ObservableList<String> autoCompleteBreakfast = icd.showIngredientBreakfast(cbCalories.getValue());
+            TextFields.bindAutoCompletion(tfBreakfast, autoCompleteBreakfast);
+            ObservableList<String> autoCompleteDinner = icd.showIngredientDinner(cbCalories.getValue());
+            TextFields.bindAutoCompletion(tfDinner, autoCompleteDinner);
+            ObservableList<String> autoCompleteLunch = icd.showIngredientLunch(cbCalories.getValue());
+            TextFields.bindAutoCompletion(tfLunch, autoCompleteLunch);
+            ObservableList<String> autoCompleteSnack = icd.showIngredientSnack(cbCalories.getValue());
+            TextFields.bindAutoCompletion(tfSnacks, autoCompleteSnack);
+            
+    }
+    
+        @FXML
+    private void CRUDIngTransition(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowIngredients.fxml"));
+            Parent root1 =(Parent) loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Gestion des ingredients");
+            stage.setScene(new Scene(root1));
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+        
+   
     @FXML
     private void mainTransition(ActionEvent event) {
         try {
@@ -246,4 +274,12 @@ public class ShowDietController implements Initializable {
         }
     }
     
+        @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        afficherComboBox();
+        majTable();    
+        recherche_diet();      
+            
+    } 
+ 
 }
