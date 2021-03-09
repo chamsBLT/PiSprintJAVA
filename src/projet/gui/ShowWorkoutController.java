@@ -18,7 +18,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
@@ -30,10 +32,12 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import projet.entities.workout;
 import projet.services.workoutCRUD;
 import projet.services.workoutMETIER;
-
+import org.controlsfx.control.Notifications;
 /**
  * FXML Controller class
  *
@@ -112,7 +116,9 @@ public class ShowWorkoutController implements Initializable {
     @FXML
     private ImageView iArms2;
     
-     
+
+    Image confirmation = new Image("/Graphics/checked.png");
+    
     @FXML
     private void getSelectedWorkout(MouseEvent event) {
         
@@ -164,6 +170,15 @@ public class ShowWorkoutController implements Initializable {
     
     @FXML
     private void ajouterWorkout(ActionEvent event) {
+        
+        if(tfGwname.getText().isEmpty() ){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.setTitle("Workout");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez remplir tous les champs!");
+            alert.show();       
+        }else{
             String rNbr_series1 = tfGwnbr_series.getText();
             String rDuree_serie1 = tfGwduree_serie.getText(); 
             String rBody_part = tfGwbody_part.getValue();
@@ -175,15 +190,32 @@ public class ShowWorkoutController implements Initializable {
 
             workout w = new workout(rNbr_series,rDuree_serie,rBody_part,rDescription,rName);
             workoutCRUD wcd = new workoutCRUD();
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.setTitle("Workout");
+            alert.setHeaderText(null);
+            alert.setContentText("Workout ajouté!");
+            alert.show();
+               
             wcd.addWorkout(w);
             majTable();
             recherche_workout();
     }
-    
+    }
     
     @FXML
     private void modifierWorkout(ActionEvent event) {
+            if(tfGwid.getText().isEmpty()){
+                
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.setTitle("Workout");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez selectionner un workout!");
+            alert.show();
             
+            }else{
             String mID1 = tfGwid.getText();
             String mNbr_series1 = tfGwnbr_series.getText();
             String mDuree_serie1 = tfGwduree_serie.getText();
@@ -195,27 +227,51 @@ public class ShowWorkoutController implements Initializable {
             int mNbr_series=Integer.parseInt(mNbr_series1);
             int mDuree_serie=Integer.parseInt(mDuree_serie1);
 
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.setTitle("Workout");
+            alert.setHeaderText(null);
+            alert.setContentText("Workout modifié!");
+            alert.show();
+            
             workout w = new workout(mID,mNbr_series,mDuree_serie,mBody_part,mDescription,mName);
             workoutCRUD wcd = new workoutCRUD();
             wcd.editWorkout(w);
             majTable();
             recherche_workout();
     }
-    
+    }
     
     @FXML
     private void supprimerWorkout(ActionEvent event) {
        
+            if(tfGwid.getText().isEmpty()){
+                
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.setTitle("Workout");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez selectionner un workout!");
+            alert.show();
+            
+            }else{
             String mID1 = tfGwid.getText();
             
             int mID=Integer.parseInt(mID1);
         
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.setTitle("Workout");
+            alert.setHeaderText(null);
+            alert.setContentText("Workout supprimé!");
+            alert.show();
+            
             workoutCRUD wcd = new workoutCRUD();
             wcd.deleteWorkout(mID);
             majTable();
             recherche_workout();
     }
-    
+    }
     
      private void recherche_workout() {   
             colID.setCellValueFactory(new PropertyValueFactory<workout ,Integer>("id"));

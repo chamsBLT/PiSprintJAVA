@@ -25,6 +25,8 @@ import java.util.stream.Collectors;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
@@ -94,6 +96,7 @@ public class HomePageWorkoutController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         workoutDetails();
+        tfHdesciption.setWrapText(true);
         
     }    
 
@@ -166,8 +169,11 @@ public class HomePageWorkoutController implements Initializable {
     private void crudNavigation(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowWorkout.fxml"));
-            Parent root = loader.load();
-            btnRetour.getScene().setRoot(root);
+            Parent root =(Parent) loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Gestion Workout");
+            stage.setScene(new Scene(root));
+            stage.show();
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }    

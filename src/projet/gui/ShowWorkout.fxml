@@ -14,40 +14,40 @@
 
 <AnchorPane id="AnchorPane" onMouseClicked="#resetValues" prefHeight="1000.0" prefWidth="1620.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.ShowWorkoutController">
    <children>
-      <TableView fx:id="table_workout" layoutX="895.0" layoutY="254.0" onMouseClicked="#getSelectedWorkout" prefHeight="366.0" prefWidth="504.0">
+      <TableView fx:id="table_workout" layoutX="812.0" layoutY="77.0" onMouseClicked="#getSelectedWorkout" prefHeight="626.0" prefWidth="778.0">
         <columns>
           <TableColumn fx:id="colID" prefWidth="75.0" text="id" />
-          <TableColumn fx:id="colNbr_series" prefWidth="75.0" text="nb series" />
-            <TableColumn fx:id="colDuree_serie" prefWidth="75.0" text="duree serie" />
-            <TableColumn fx:id="colBody_part" prefWidth="75.0" text="muscle" />
-            <TableColumn fx:id="colName" prefWidth="125.60009765625" text="name" />
-            <TableColumn fx:id="colDescription" prefWidth="75.0" text="desc" />
+          <TableColumn fx:id="colNbr_series" prefWidth="92.800048828125" text="nb series" />
+            <TableColumn fx:id="colDuree_serie" text="duree serie" />
+            <TableColumn fx:id="colBody_part" prefWidth="100.7999267578125" text="muscle" />
+            <TableColumn fx:id="colName" prefWidth="139.199951171875" text="name" />
+            <TableColumn fx:id="colDescription" prefWidth="280.7999267578125" text="desc" />
         </columns>
       </TableView>
       <TextField fx:id="tfGwid" editable="false" layoutX="102.0" layoutY="34.0" />
       <TextField fx:id="tfGwname" layoutX="102.0" layoutY="83.0" />
       <TextField fx:id="tfGwnbr_series" layoutX="102.0" layoutY="135.0" />
       <TextField fx:id="tfGwduree_serie" layoutX="102.0" layoutY="188.0" />
-      <TextArea fx:id="tfGwdesciption" layoutX="560.0" layoutY="48.0" prefHeight="200.0" prefWidth="200.0" />
-      <Button fx:id="btnSuppWorkout" layoutX="1297.0" layoutY="918.0" mnemonicParsing="false" onAction="#supprimerWorkout" prefHeight="26.0" prefWidth="123.0" text="Supprimer" />
-      <Button fx:id="btnModifWorkout" layoutX="1431.0" layoutY="875.0" mnemonicParsing="false" onAction="#modifierWorkout" prefHeight="26.0" prefWidth="123.0" text="Modifier" />
+      <TextArea fx:id="tfGwdesciption" layoutX="526.0" layoutY="34.0" prefHeight="200.0" prefWidth="200.0" />
+      <Button fx:id="btnSuppWorkout" layoutX="1306.0" layoutY="885.0" mnemonicParsing="false" onAction="#supprimerWorkout" prefHeight="26.0" prefWidth="283.0" text="Supprimer" />
+      <Button fx:id="btnModifWorkout" layoutX="1306.0" layoutY="843.0" mnemonicParsing="false" onAction="#modifierWorkout" prefHeight="26.0" prefWidth="283.0" text="Modifier" />
       <Label layoutX="14.0" layoutY="38.0" text="id" />
       <Label layoutX="14.0" layoutY="87.0" text="Nom" />
       <Label layoutX="14.0" layoutY="139.0" text="Nbr series" />
       <Label layoutX="14.0" layoutY="192.0" text="Duree serie" />
       <Label layoutX="14.0" layoutY="240.0" text="Muscle" />
-      <Label layoutX="427.0" layoutY="53.0" text="Description" />
-      <Button fx:id="btnAjtWorkout" layoutX="1295.0" layoutY="877.0" mnemonicParsing="false" onAction="#ajouterWorkout" prefHeight="26.0" prefWidth="123.0" text="Ajouter" />
+      <Label layoutX="427.0" layoutY="39.0" text="Description" />
+      <Button fx:id="btnAjtWorkout" layoutX="1306.0" layoutY="801.0" mnemonicParsing="false" onAction="#ajouterWorkout" prefHeight="26.0" prefWidth="283.0" text="Ajouter" />
       <ComboBox fx:id="tfGwbody_part" layoutX="101.0" layoutY="236.0" onAction="#setBodyPartImages" prefWidth="150.0" />
-      <TextField fx:id="rechercheWorkout" layoutX="1004.0" layoutY="174.0" promptText="Nom / Muscle" />
-      <Label layoutX="925.0" layoutY="178.0" text="Recherche" />
-      <ListView fx:id="listStats" layoutX="1473.0" layoutY="314.0" prefHeight="178.0" prefWidth="130.0" />
-      <Button fx:id="btnRetour" layoutX="1432.0" layoutY="918.0" mnemonicParsing="false" onAction="#workoutmainTransition" prefHeight="26.0" prefWidth="123.0" text="Retour" />
-      <Label layoutX="1416.0" layoutY="317.0" text="Arms" />
-      <Label layoutX="1416.0" layoutY="343.0" text="Abs" />
-      <Label layoutX="1416.0" layoutY="370.0" text="Shoulders" />
-      <Label layoutX="1416.0" layoutY="402.0" text="Label" />
-      <Label layoutX="1416.0" layoutY="432.0" text="Label" />
+      <TextField fx:id="rechercheWorkout" layoutX="1168.0" layoutY="34.0" promptText="Nom / Muscle" />
+      <Label layoutX="1057.0" layoutY="39.0" text="Recherche" />
+      <ListView fx:id="listStats" layoutX="891.0" layoutY="755.0" prefHeight="200.0" prefWidth="55.0" />
+      <Button fx:id="btnRetour" layoutX="1305.0" layoutY="930.0" mnemonicParsing="false" onAction="#workoutmainTransition" prefHeight="26.0" prefWidth="283.0" text="Retour" />
+      <Label layoutX="813.0" layoutY="762.0" text="Arms" />
+      <Label layoutX="815.0" layoutY="791.0" text="Abs" />
+      <Label layoutX="810.0" layoutY="938.0" text="Shoulders" />
+      <Label layoutX="813.0" layoutY="845.0" text="Chest" />
+      <Label layoutX="811.0" layoutY="875.0" text="Glutes" />
       <ImageView fx:id="BodyFrontView" fitHeight="600.0" fitWidth="300.0" layoutX="68.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Graphics/Front-Body.png" />
@@ -67,5 +67,7 @@
       <ImageView fx:id="iGlutes" fitHeight="79.0" fitWidth="105.0" layoutX="565.0" layoutY="593.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="iShoulders2" fitHeight="58.0" fitWidth="160.0" layoutX="534.0" layoutY="448.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="iArms2" fitHeight="111.0" fitWidth="291.0" layoutX="470.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true" />
+      <Label layoutX="814.0" layoutY="817.0" text="Back" />
+      <Label layoutX="813.0" layoutY="906.0" text="Legs" />
    </children>
 </AnchorPane>

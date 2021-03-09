@@ -20,6 +20,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
@@ -28,6 +29,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.controlsfx.control.textfield.TextFields;
 import projet.entities.diet;
 import projet.services.dietCRUD;
@@ -139,20 +141,35 @@ public class ShowDietController implements Initializable {
     
     @FXML
     private void ajouterDiet(ActionEvent event) {
+            if (tfLunch.getText().isEmpty()){
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.setTitle("Diet");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez remplir tous les champs!");
+            alert.show();
             
+            }else{
             String rBreakfast = tfBreakfast.getText();
             String rLunch = tfLunch.getText(); 
             String rDinner = tfDinner.getText();
             String rSnacks = tfSnacks.getText();
             String rCalories = cbCalories.getValue();
                  
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.setTitle("Diet");
+            alert.setHeaderText(null);
+            alert.setContentText("Diet ajoutée!");
+            alert.show();
+            
             diet d = new diet(rBreakfast,rLunch,rDinner,rSnacks,rCalories);
             dietCRUD dcd = new dietCRUD();
             dcd.addDiet(d);
             majTable();
             recherche_diet();
     }
-
+    }
     
     @FXML
     private void modifierDiet(ActionEvent event) {
@@ -166,6 +183,13 @@ public class ShowDietController implements Initializable {
             
             int rId=Integer.parseInt(rId1);
                  
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.setTitle("Diet");
+            alert.setHeaderText(null);
+            alert.setContentText("Diet modifiée!");
+            alert.show();
+            
             diet d = new diet(rId,rBreakfast,rLunch,rDinner,rSnacks,rCalories);
             dietCRUD dcd = new dietCRUD();
             dcd.editDiet(d);
@@ -177,16 +201,33 @@ public class ShowDietController implements Initializable {
     @FXML
     private void supprimerDiet(ActionEvent event) {
         
+            if(tfLunch.getText().isEmpty()){
+                
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.setTitle("Diet");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez selectionner un régime!");
+            alert.show();
+            
+            }else{        
             String mID1 = tfId.getText();
             
             int mID=Integer.parseInt(mID1);
         
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.setTitle("Diet");
+            alert.setHeaderText(null);
+            alert.setContentText("Diet supprimée!");
+            alert.show();
+            
             dietCRUD dcd = new dietCRUD();
             dcd.deleteDiet(mID);
             majTable();
             recherche_diet();
     }
-    
+    }
       void recherche_diet() {   
         colId.setCellValueFactory(new PropertyValueFactory<diet ,Integer>("id"));
         colBreakfast.setCellValueFactory(new PropertyValueFactory<diet , String>("breakfast"));

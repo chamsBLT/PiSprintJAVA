@@ -10,16 +10,16 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.ShowIngredientsController">
    <children>
-      <TextField fx:id="tfIngId" editable="false" layoutX="151.0" layoutY="67.0" />
-      <TextField fx:id="tfIngName" layoutX="151.0" layoutY="118.0" />
-      <ComboBox fx:id="cbIngCategory" layoutX="150.0" layoutY="167.0" prefWidth="150.0" />
-      <Label layoutX="76.0" layoutY="71.0" text="ID" />
-      <Label layoutX="78.0" layoutY="122.0" text="Name" />
-      <Label layoutX="78.0" layoutY="171.0" text="Category" />
-      <Button fx:id="btnDeleteIng" layoutX="512.0" layoutY="306.0" mnemonicParsing="false" onAction="#SupprimerIngredient" text="Supprimer" />
-      <Button fx:id="btnEditIng" layoutX="422.0" layoutY="346.0" mnemonicParsing="false" onAction="#ModifierIngredient" prefHeight="26.0" prefWidth="71.0" text="Modifier" />
-      <Button fx:id="btnAddIng" layoutX="422.0" layoutY="305.0" mnemonicParsing="false" onAction="#AjouterIngredient" prefHeight="26.0" prefWidth="71.0" text="Ajouter" />
-      <Button fx:id="btnFermer" layoutX="512.0" layoutY="346.0" mnemonicParsing="false" onAction="#FermerFenetre" prefHeight="26.0" prefWidth="71.0" text="Fermer" />
+      <TextField fx:id="tfIngId" editable="false" layoutX="101.0" layoutY="67.0" />
+      <TextField fx:id="tfIngName" layoutX="101.0" layoutY="118.0" />
+      <ComboBox fx:id="cbIngCategory" layoutX="100.0" layoutY="167.0" prefWidth="150.0" />
+      <Label layoutX="26.0" layoutY="71.0" text="ID" />
+      <Label layoutX="28.0" layoutY="122.0" text="Name" />
+      <Label layoutX="28.0" layoutY="171.0" text="Category" />
+      <Button fx:id="btnDeleteIng" layoutX="485.0" layoutY="306.0" mnemonicParsing="false" onAction="#SupprimerIngredient" prefHeight="26.0" prefWidth="97.0" text="Supprimer" />
+      <Button fx:id="btnEditIng" layoutX="368.0" layoutY="347.0" mnemonicParsing="false" onAction="#ModifierIngredient" prefHeight="26.0" prefWidth="98.0" text="Modifier" />
+      <Button fx:id="btnAddIng" layoutX="368.0" layoutY="306.0" mnemonicParsing="false" onAction="#AjouterIngredient" prefHeight="26.0" prefWidth="98.0" text="Ajouter" />
+      <Button fx:id="btnFermer" layoutX="485.0" layoutY="347.0" mnemonicParsing="false" onAction="#FermerFenetre" prefHeight="26.0" prefWidth="98.0" text="Fermer" />
       <TableView fx:id="tabIngredient" layoutX="332.0" layoutY="51.0" onMouseClicked="#getSelectedIngredient" prefHeight="200.0" prefWidth="250.0">
         <columns>
             <TableColumn fx:id="colID" prefWidth="43.199951171875" text="ID" />
@@ -28,7 +28,7 @@
             <TableColumn fx:id="colIngCaloriesCategory" prefWidth="63.20001220703125" text="Calories" />
         </columns>
       </TableView>
-      <ComboBox fx:id="cbIngCalorieCategory" layoutX="150.0" layoutY="225.0" prefWidth="150.0" />
-      <Label layoutX="80.0" layoutY="229.0" text="Calories" />
+      <ComboBox fx:id="cbIngCalorieCategory" layoutX="100.0" layoutY="225.0" prefWidth="150.0" />
+      <Label layoutX="30.0" layoutY="229.0" text="Calories" />
    </children>
 </AnchorPane>

@@ -15,7 +15,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -42,19 +44,26 @@ public class HomeController implements Initializable {
     private void AfficherWorkoutNavigation(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePageWorkout.fxml"));
-            Parent root = loader.load();
-            btnWorkout.getScene().setRoot(root);
+            Parent root =(Parent) loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Workout");
+            stage.setScene(new Scene(root));
+            stage.show();
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
 
     @FXML
     private void AfficherDietNavigation(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowDiet.fxml"));
-            Parent root = loader.load();
-            btnDiet.getScene().setRoot(root);
+            Parent root =(Parent) loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Gestion diet");
+            stage.setScene(new Scene(root));
+            stage.show();
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }

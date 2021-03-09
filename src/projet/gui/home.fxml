@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="558.0" prefWidth="949.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.HomeController">
    <children>
-      <Button fx:id="btnDiet" layoutX="323.0" layoutY="297.0" mnemonicParsing="false" onAction="#AfficherDietNavigation" prefHeight="90.0" prefWidth="302.0" text="Diet" />
-      <Button fx:id="btnWorkout" layoutX="323.0" layoutY="171.0" mnemonicParsing="false" onAction="#AfficherWorkoutNavigation" prefHeight="90.0" prefWidth="302.0" text="Workout" />
+      <Button fx:id="btnDiet" layoutX="323.0" layoutY="297.0" mnemonicParsing="false" onAction="#AfficherDietNavigation" prefHeight="90.0" prefWidth="302.0" text="Diet">
+         <font>
+            <Font name="Arial Bold Italic" size="40.0" />
+         </font></Button>
+      <Button fx:id="btnWorkout" layoutX="323.0" layoutY="171.0" mnemonicParsing="false" onAction="#AfficherWorkoutNavigation" prefHeight="90.0" prefWidth="302.0" text="Workout">
+         <font>
+            <Font name="Arial Bold Italic" size="40.0" />
+         </font>
+         <effect>
+            <Glow level="0.0" />
+         </effect></Button>
    </children>
 </AnchorPane>
