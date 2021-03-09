@@ -174,6 +174,16 @@ public class ShowDietController implements Initializable {
     @FXML
     private void modifierDiet(ActionEvent event) {
         
+         if(tfId.getText().isEmpty()){
+                
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.setTitle("Diet");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez selectionner un régime!");
+            alert.show();
+            
+            }else{  
             String rId1 = tfId.getText();
             String rBreakfast = tfBreakfast.getText();
             String rLunch = tfLunch.getText(); 
@@ -196,12 +206,12 @@ public class ShowDietController implements Initializable {
             majTable();
             recherche_diet();
     }
-
+    }
     
     @FXML
     private void supprimerDiet(ActionEvent event) {
         
-            if(tfLunch.getText().isEmpty()){
+            if(tfId.getText().isEmpty()){
                 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.initStyle(StageStyle.UTILITY);

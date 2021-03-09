@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
@@ -19,6 +20,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.StageStyle;
 import projet.entities.ingredient;
 import projet.services.ingredientCRUD;
 
@@ -94,44 +96,92 @@ public class ShowIngredientsController implements Initializable {
 
     @FXML
     private void SupprimerIngredient(ActionEvent event) {
+        if(tfIngId.getText().isEmpty()){       
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.setTitle("Ingredient");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez selectionner un ingredient!");
+            alert.show();
+            
+            }else{
         String mID1 = tfIngId.getText();
             
         int mID=Integer.parseInt(mID1);
+        
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.setTitle("Ingredient");
+            alert.setHeaderText(null);
+            alert.setContentText("Ingredient supprimé!");
+            alert.show();
         
         ingredientCRUD icd = new ingredientCRUD();
         icd.deleteWorkout(mID);
         majTable();
     }
-
+    }
     @FXML
     private void ModifierIngredient(ActionEvent event) {
-        
+         if(tfIngId.getText().isEmpty()){
+                
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.setTitle("Ingredient");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez selectionner un ingredient!");
+            alert.show();
+            
+            }else{  
             String mID1 = tfIngId.getText();
             String mName = tfIngName.getText(); 
             String mCategory = cbIngCategory.getValue();
             String mCalories_Category = cbIngCalorieCategory.getValue(); 
             
             int mID=Integer.parseInt(mID1);
-
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.setTitle("Ingredient");
+            alert.setHeaderText(null);
+            alert.setContentText("Ingredient modifié!");
+            alert.show();
+            
             ingredient i = new ingredient(mID,mName,mCategory,mCalories_Category);
             ingredientCRUD icd = new ingredientCRUD();
             icd.editIngredient(i);
             majTable();
     }
-
+    }
     @FXML
     private void AjouterIngredient(ActionEvent event) {
+        if(tfIngName.getText().isEmpty()){
+                
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.setTitle("Ingredient");
+            alert.setHeaderText(null);
+            alert.setContentText("Veuillez remplir tous les champs!");
+            alert.show();
+            
+            }else{  
             String rName = tfIngName.getText();
             String rCategory = cbIngCategory.getValue();
             String rCalories_Category = cbIngCalorieCategory.getValue(); 
             
-            ingredient i = new ingredient(rName,rCategory,rCalories_Category);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.setTitle("Ingredient");
+            alert.setHeaderText(null);
+            alert.setContentText("Ingredient ajouté!");
+            alert.show();
             
+            ingredient i = new ingredient(rName,rCategory,rCalories_Category);
             ingredientCRUD icd = new ingredientCRUD();
             icd.addIngredient(i);
             majTable();
     }
-    
+    }   
      public void majTable(){
         colID.setCellValueFactory(new PropertyValueFactory<ingredient ,Integer>("id"));
         colIngName.setCellValueFactory(new PropertyValueFactory<ingredient ,String>("name"));
