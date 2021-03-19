@@ -19,7 +19,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -35,11 +34,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
 import projet.entities.workout;
 import projet.services.workoutCRUD;
 import projet.services.workoutMETIER;
-import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
@@ -95,21 +92,31 @@ public class ShowWorkoutController implements Initializable {
     @FXML
     private ImageView iAbs;
     @FXML
-    private ImageView iArms1;
-    @FXML
-    private ImageView iShoulders1;
-    @FXML
-    private ImageView iLegs1;
-    @FXML
     private ImageView iBack;
     @FXML
     private ImageView iLegs2;
     @FXML
     private ImageView iGlutes;
     @FXML
-    private ImageView iShoulders2;
+    private ImageView iLegs11;
     @FXML
-    private ImageView iArms2;
+    private ImageView iLegs12;
+    @FXML
+    private ImageView iArms11;
+    @FXML
+    private ImageView iShoulders11;
+    @FXML
+    private ImageView iShoulders21;
+    @FXML
+    private ImageView iArms21;
+    @FXML
+    private ImageView iShoulders12;
+    @FXML
+    private ImageView iArms12;
+    @FXML
+    private ImageView iArms22;
+    @FXML
+    private ImageView iShoulders22;
 
     ObservableList<Integer> listW1;
     ObservableList<workout> listW;
@@ -119,6 +126,30 @@ public class ShowWorkoutController implements Initializable {
     int index = -1;
 
     Image confirmation = new Image("/Graphics/checked.png");
+    
+
+    Image imArms11 = new Image("/Graphics/Arms11.png");
+    Image imArms12 = new Image("/Graphics/Arms12.png");
+    Image imArms21 = new Image("/Graphics/Arms21.png");
+    Image imArms22 = new Image("/Graphics/Arms22.png");
+    
+    Image imShoulders11 = new Image("/Graphics/Shoulders11.png");
+    Image imShoulders12 = new Image("/Graphics/Shoulders12.png");
+    Image imShoulders21 = new Image("/Graphics/Shoulders21.png");
+    Image imShoulders22 = new Image("/Graphics/Shoulders22.png");
+    
+    Image imAbs = new Image("/Graphics/Abs.png");
+
+    Image imLegs11 = new Image("/Graphics/Legs11.png");
+    Image imLegs12 = new Image("/Graphics/Legs12.png");
+    Image imLegs2 = new Image("/Graphics/Legs2.png");
+
+    Image imGlutes = new Image("/Graphics/Glutes.png");
+
+    Image imBack = new Image("/Graphics/Back.png");
+
+    Image imChest = new Image("/Graphics/Chest.png");
+    
 
     @FXML
     private void getSelectedWorkout(MouseEvent event) {
@@ -337,29 +368,13 @@ public class ShowWorkoutController implements Initializable {
     private void setBodyPartImages(ActionEvent event) {
         String selectedBp = tfGwbody_part.getValue();
 
-        Image imArms1 = new Image("/Graphics/Arms1.png");
-        Image imArms2 = new Image("/Graphics/Arms2.png");
-
-        Image imShoulders1 = new Image("/Graphics/Shoulders1.png");
-        Image imShoulders2 = new Image("/Graphics/Shoulders2.png");
-
-        Image imAbs = new Image("/Graphics/Abs.png");
-
-        Image imLegs1 = new Image("/Graphics/Legs1.png");
-        Image imLegs2 = new Image("/Graphics/Legs2.png");
-
-        Image imGlutes = new Image("/Graphics/Glutes.png");
-
-        Image imBack = new Image("/Graphics/Back.png");
-
-        Image imChest = new Image("/Graphics/Chest.png");
-
         iArms1.setImage(null);
         iArms2.setImage(null);
         iShoulders1.setImage(null);
         iShoulders2.setImage(null);
         iAbs.setImage(null);
-        iLegs1.setImage(null);
+        iLegs11.setImage(null);
+        iLegs12.setImage(null);
         iLegs2.setImage(null);
         iBack.setImage(null);
         iGlutes.setImage(null);
@@ -378,7 +393,8 @@ public class ShowWorkoutController implements Initializable {
                 iAbs.setImage(imAbs);
                 break;
             case "legs":
-                iLegs1.setImage(imLegs1);
+                iLegs11.setImage(imLegs11);
+                iLegs12.setImage(imLegs12);
                 iLegs2.setImage(imLegs2);
                 break;
             case "back":
@@ -415,7 +431,52 @@ public class ShowWorkoutController implements Initializable {
         tfGwduree_serie.setText(null);
         tfGwbody_part.setValue(null);
         tfGwdesciption.setText(null);
+        iArms1.setImage(null);
+        iArms2.setImage(null);
+        iShoulders1.setImage(null);
+        iShoulders2.setImage(null);
+        iAbs.setImage(null);
+        iLegs11.setImage(null);
+        iLegs12.setImage(null);
+        iLegs2.setImage(null);
+        iBack.setImage(null);
+        iGlutes.setImage(null);
+        iChest.setImage(null);
     }
+    
+    @FXML
+    private void SetComboBoxLegs(MouseEvent event) {
+        iLegs11.setImage(imLegs11);
+        iLegs12.setImage(imLegs12);
+        iLegs2.setImage(imLegs2);
+        tfGwbody_part.setValue("legs");
+    }
+
+    @FXML
+    private void SetComboBoxChest(MouseEvent event) {
+    }
+
+    @FXML
+    private void SetComboBoxAbs(MouseEvent event) {
+    }
+
+    @FXML
+    private void SetComboBoxArms(MouseEvent event) {
+    }
+
+    @FXML
+    private void SetComboBoxShoulders(MouseEvent event) {
+    }
+
+    @FXML
+    private void SetComboBoxBack(MouseEvent event) {
+    }
+
+    @FXML
+    private void SetComboBoxGlutes(MouseEvent event) {
+    }
+    
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
