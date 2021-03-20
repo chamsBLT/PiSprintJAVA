@@ -20,66 +20,64 @@ import projet.tools.MyConnection;
  * @author balti
  */
 public class workoutMETIER {
-    
-        public ObservableList<String> showWorkoutByMuscle(String muscle){
-            
+
+    public ObservableList<String> showWorkoutByMuscle(String muscle) {
+
         ObservableList<String> list = FXCollections.observableArrayList();
         try {
-            String requete ="SELECT name FROM workout WHERE body_part LIKE ?";
-            PreparedStatement pst =
-                    new MyConnection().cn.prepareStatement(requete);
+            String requete = "SELECT name FROM workout WHERE body_part LIKE ?";
+            PreparedStatement pst
+                    = new MyConnection().cn.prepareStatement(requete);
             pst.setString(1, muscle);
             ResultSet rs = pst.executeQuery();
-          
-            while(rs.next()){
+
+            while (rs.next()) {
                 list.add(rs.getString(1));
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(workoutCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
-        
-        public ObservableList<workout> showWorkoutByMuscleDetails(String muscle){
-            
+
+    public ObservableList<workout> showWorkoutByMuscleDetails(String muscle) {
+
         ObservableList<workout> list = FXCollections.observableArrayList();
         try {
-            String requete ="SELECT nbr_series, duree_serie, description FROM workout WHERE name LIKE ?";
-            PreparedStatement pst =
-                    new MyConnection().cn.prepareStatement(requete);
+            String requete = "SELECT nbr_series, duree_serie, description FROM workout WHERE name LIKE ?";
+            PreparedStatement pst
+                    = new MyConnection().cn.prepareStatement(requete);
             pst.setString(1, muscle);
             ResultSet rs = pst.executeQuery();
-          
-            while(rs.next()){
-                list.add(new workout(rs.getInt("nbr_series"),rs.getInt("duree_serie"),rs.getString("description")));
+
+            while (rs.next()) {
+                list.add(new workout(rs.getInt("nbr_series"), rs.getInt("duree_serie"), rs.getString("description")));
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(workoutCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
-        
-        
-        public ObservableList<Integer> showWorkoutStats(){
-            
+
+    public ObservableList<Integer> showWorkoutStats() {
+
         ObservableList<Integer> list = FXCollections.observableArrayList();
         try {
-            String requete ="SELECT COUNT(*) AS n FROM workout GROUP BY body_part ORDER BY body_part";
-            PreparedStatement pst =
-                    new MyConnection().cn.prepareStatement(requete);
+            String requete = "SELECT COUNT(*) AS n FROM workout GROUP BY body_part ORDER BY body_part";
+            PreparedStatement pst
+                    = new MyConnection().cn.prepareStatement(requete);
             ResultSet rs = pst.executeQuery();
-          
-            while(rs.next()){
+
+            while (rs.next()) {
                 list.add(rs.getInt("n"));
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(workoutCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
-        
 
 }

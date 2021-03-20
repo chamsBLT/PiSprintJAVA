@@ -14,15 +14,15 @@ import java.sql.SQLException;
  * @author balti
  */
 public class MyConnection {
-    public String url="jdbc:mysql://localhost:3306/test";
-    public String login="root";
-    public String pwd="";
+
+    public String url = "jdbc:mysql://localhost:3306/test";
+    public String login = "root";
+    public String pwd = "";
     public Connection cn;
-    
-    
+
     public MyConnection() {
         try {
-            cn=DriverManager.getConnection(url,login,pwd);
+            cn = DriverManager.getConnection(url, login, pwd);
             System.out.println("Connexion établie!");
         } catch (SQLException ex) {
             System.out.println("Erreur de connexion.");

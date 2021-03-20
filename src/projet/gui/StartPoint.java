@@ -19,15 +19,15 @@ import javafx.stage.Stage;
  * @author balti
  */
 public class StartPoint extends Application {
-    
+
     @Override
     public void start(Stage primaryStage) {
-        
+
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("ShowWorkout.fxml"));
-            
+            Parent root = FXMLLoader.load(getClass().getResource("ShowDiet.fxml"));
+
             Scene scene = new Scene(root);
-            
+
             primaryStage.setTitle("Sportunus");
             primaryStage.setScene(scene);
             primaryStage.show();
@@ -42,5 +42,5 @@ public class StartPoint extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-    
+
 }

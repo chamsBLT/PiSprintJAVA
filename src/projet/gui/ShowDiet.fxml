@@ -9,9 +9,11 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.Glow?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
 <AnchorPane id="AnchorPane" prefHeight="649.0" prefWidth="948.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.ShowDietController">
    <children>
+      <Pane layoutY="1.0" onMouseClicked="#ResetValues" prefHeight="391.0" prefWidth="950.0" />
       <Label layoutX="168.0" layoutY="42.0" text="ID" />
       <Label layoutX="266.0" layoutY="92.0" text="Lunch" />
       <Label layoutX="22.0" layoutY="92.0" text="Breakfast" />
@@ -33,7 +35,7 @@
             <TableColumn fx:id="colBreakfast" prefWidth="196.00001525878906" text="Breakfast" />
             <TableColumn fx:id="colLunch" prefWidth="197.5999755859375" text="Lunch" />
             <TableColumn fx:id="colDinner" prefWidth="200.8001708984375" text="Dinner" />
-            <TableColumn fx:id="colSnacks" prefWidth="206.39990234375" text="Snacks" />
+            <TableColumn fx:id="colSnacks" prefWidth="197.5999755859375" text="Snacks" />
         </columns>
       </TableView>
       <Button fx:id="btnAjtDiet" layoutX="667.0" layoutY="252.0" mnemonicParsing="false" onAction="#ajouterDiet" prefHeight="26.0" prefWidth="116.0" text="Ajouter" />

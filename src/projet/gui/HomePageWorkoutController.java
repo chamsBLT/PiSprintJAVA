@@ -27,6 +27,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 /**
  * FXML Controller class
  *
@@ -60,45 +61,42 @@ public class HomePageWorkoutController implements Initializable {
     private ListView<String> ListW_shoulders;
     @FXML
     private ListView<String> ListW_abdominals;
-      
-        
-        public void workoutDetails(){      
+
+    public void workoutDetails() {
         workoutMETIER wm = new workoutMETIER();
-        
-            if(!ListW_arms.hasProperties()){   
-                listW = wm.showWorkoutByMuscle("arms");
-                ListW_arms.setItems(listW);       
-            } 
-            if(!ListW_shoulders.hasProperties()){   
-                listW = wm.showWorkoutByMuscle("shoulders");
-                ListW_shoulders.setItems(listW);       
-            } 
-            if(!ListW_back.hasProperties()) {
-                listW = wm.showWorkoutByMuscle("back");
-                ListW_back.setItems(listW); 
-            }
-            if(!ListW_legs.hasProperties()) {
-                listW = wm.showWorkoutByMuscle("legs");
-                ListW_legs.setItems(listW); 
-            }
-            if(!ListW_glutes.hasProperties()){   
-                listW = wm.showWorkoutByMuscle("glutes");
-                ListW_glutes.setItems(listW);       
-            } 
-            if(!ListW_abdominals.hasProperties()) {
-                listW = wm.showWorkoutByMuscle("abdominals");
-                ListW_abdominals.setItems(listW); 
-            }        
+
+        if (!ListW_arms.hasProperties()) {
+            listW = wm.showWorkoutByMuscle("arms");
+            ListW_arms.setItems(listW);
         }
-        
-        
-    
+        if (!ListW_shoulders.hasProperties()) {
+            listW = wm.showWorkoutByMuscle("shoulders");
+            ListW_shoulders.setItems(listW);
+        }
+        if (!ListW_back.hasProperties()) {
+            listW = wm.showWorkoutByMuscle("back");
+            ListW_back.setItems(listW);
+        }
+        if (!ListW_legs.hasProperties()) {
+            listW = wm.showWorkoutByMuscle("legs");
+            ListW_legs.setItems(listW);
+        }
+        if (!ListW_glutes.hasProperties()) {
+            listW = wm.showWorkoutByMuscle("glutes");
+            ListW_glutes.setItems(listW);
+        }
+        if (!ListW_abdominals.hasProperties()) {
+            listW = wm.showWorkoutByMuscle("abdominals");
+            ListW_abdominals.setItems(listW);
+        }
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         workoutDetails();
         tfHdesciption.setWrapText(true);
-        
-    }    
+
+    }
 
     @FXML
     private void afficherWorkoutDetailsArms(MouseEvent event) {
@@ -162,21 +160,21 @@ public class HomePageWorkoutController implements Initializable {
             btwTansitionGRUDW.getScene().setRoot(root);
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-        }    
+        }
     }
 
     @FXML
     private void crudNavigation(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowWorkout.fxml"));
-            Parent root =(Parent) loader.load();
+            Parent root = (Parent) loader.load();
             Stage stage = new Stage();
             stage.setTitle("Gestion Workout");
             stage.setScene(new Scene(root));
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-        }    
+        }
     }
- 
+
 }

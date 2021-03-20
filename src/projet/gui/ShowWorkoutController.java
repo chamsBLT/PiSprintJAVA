@@ -126,18 +126,17 @@ public class ShowWorkoutController implements Initializable {
     int index = -1;
 
     Image confirmation = new Image("/Graphics/checked.png");
-    
 
     Image imArms11 = new Image("/Graphics/Arms11.png");
     Image imArms12 = new Image("/Graphics/Arms12.png");
     Image imArms21 = new Image("/Graphics/Arms21.png");
     Image imArms22 = new Image("/Graphics/Arms22.png");
-    
+
     Image imShoulders11 = new Image("/Graphics/Shoulders11.png");
     Image imShoulders12 = new Image("/Graphics/Shoulders12.png");
     Image imShoulders21 = new Image("/Graphics/Shoulders21.png");
     Image imShoulders22 = new Image("/Graphics/Shoulders22.png");
-    
+
     Image imAbs = new Image("/Graphics/Abs.png");
 
     Image imLegs11 = new Image("/Graphics/Legs11.png");
@@ -149,7 +148,6 @@ public class ShowWorkoutController implements Initializable {
     Image imBack = new Image("/Graphics/Back.png");
 
     Image imChest = new Image("/Graphics/Chest.png");
-    
 
     @FXML
     private void getSelectedWorkout(MouseEvent event) {
@@ -200,13 +198,13 @@ public class ShowWorkoutController implements Initializable {
     @FXML
     private void ajouterWorkout(ActionEvent event) {
 
-        if (tfGwname.getText().isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        if (tfGwname.getText() == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.initStyle(StageStyle.UTILITY);
             alert.setTitle("Ajout Workout");
             alert.setHeaderText(null);
             alert.setContentText("Veuillez remplir tous les champs!");
-            alert.show();
+            alert.showAndWait();
         } else {
             String rNbr_series1 = tfGwnbr_series.getText();
             String rDuree_serie1 = tfGwduree_serie.getText();
@@ -235,14 +233,14 @@ public class ShowWorkoutController implements Initializable {
 
     @FXML
     private void modifierWorkout(ActionEvent event) {
-        if (tfGwid.getText().isEmpty()) {
+        if (tfGwid.getText() == null) {
 
-            Alert alertWE1 = new Alert(Alert.AlertType.INFORMATION);
+            Alert alertWE1 = new Alert(Alert.AlertType.WARNING);
             alertWE1.initStyle(StageStyle.UTILITY);
             alertWE1.setTitle("Modification Workout");
             alertWE1.setHeaderText(null);
             alertWE1.setContentText("Veuillez selectionner un workout!");
-            alertWE1.show();
+            alertWE1.showAndWait();
 
         } else {
             Alert alertWE2 = new Alert(Alert.AlertType.CONFIRMATION);
@@ -284,14 +282,14 @@ public class ShowWorkoutController implements Initializable {
     @FXML
     private void supprimerWorkout(ActionEvent event) {
 
-        if (tfGwid.getText().isEmpty()) {
+        if (tfGwid.getText() == null) {
 
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.initStyle(StageStyle.UTILITY);
             alert.setTitle("Suppression Workout");
             alert.setHeaderText(null);
             alert.setContentText("Veuillez selectionner un workout!");
-            alert.show();
+            alert.showAndWait();
 
         } else {
 
@@ -368,10 +366,14 @@ public class ShowWorkoutController implements Initializable {
     private void setBodyPartImages(ActionEvent event) {
         String selectedBp = tfGwbody_part.getValue();
 
-        iArms1.setImage(null);
-        iArms2.setImage(null);
-        iShoulders1.setImage(null);
-        iShoulders2.setImage(null);
+        iArms11.setImage(null);
+        iArms12.setImage(null);
+        iArms21.setImage(null);
+        iArms22.setImage(null);
+        iShoulders11.setImage(null);
+        iShoulders12.setImage(null);
+        iShoulders21.setImage(null);
+        iShoulders22.setImage(null);
         iAbs.setImage(null);
         iLegs11.setImage(null);
         iLegs12.setImage(null);
@@ -382,12 +384,16 @@ public class ShowWorkoutController implements Initializable {
 
         switch (selectedBp) {
             case "arms":
-                iArms1.setImage(imArms1);
-                iArms2.setImage(imArms2);
+                iArms11.setImage(imArms11);
+                iArms12.setImage(imArms12);
+                iArms21.setImage(imArms21);
+                iArms22.setImage(imArms22);
                 break;
             case "shoulders":
-                iShoulders1.setImage(imShoulders1);
-                iShoulders2.setImage(imShoulders2);
+                iShoulders11.setImage(imShoulders11);
+                iShoulders12.setImage(imShoulders12);
+                iShoulders21.setImage(imShoulders21);
+                iShoulders22.setImage(imShoulders22);
                 break;
             case "abdominals":
                 iAbs.setImage(imAbs);
@@ -431,10 +437,14 @@ public class ShowWorkoutController implements Initializable {
         tfGwduree_serie.setText(null);
         tfGwbody_part.setValue(null);
         tfGwdesciption.setText(null);
-        iArms1.setImage(null);
-        iArms2.setImage(null);
-        iShoulders1.setImage(null);
-        iShoulders2.setImage(null);
+        iArms11.setImage(null);
+        iArms12.setImage(null);
+        iArms21.setImage(null);
+        iArms22.setImage(null);
+        iShoulders11.setImage(null);
+        iShoulders12.setImage(null);
+        iShoulders21.setImage(null);
+        iShoulders22.setImage(null);
         iAbs.setImage(null);
         iLegs11.setImage(null);
         iLegs12.setImage(null);
@@ -443,7 +453,7 @@ public class ShowWorkoutController implements Initializable {
         iGlutes.setImage(null);
         iChest.setImage(null);
     }
-    
+
     @FXML
     private void SetComboBoxLegs(MouseEvent event) {
         iLegs11.setImage(imLegs11);
@@ -454,29 +464,45 @@ public class ShowWorkoutController implements Initializable {
 
     @FXML
     private void SetComboBoxChest(MouseEvent event) {
+        iChest.setImage(imChest);
+        tfGwbody_part.setValue("chest");
     }
 
     @FXML
     private void SetComboBoxAbs(MouseEvent event) {
+        iAbs.setImage(imAbs);
+        tfGwbody_part.setValue("abdominals");
     }
 
     @FXML
     private void SetComboBoxArms(MouseEvent event) {
+        iArms11.setImage(imArms11);
+        iArms12.setImage(imArms12);
+        iArms21.setImage(imArms21);
+        iArms22.setImage(imArms22);
+        tfGwbody_part.setValue("arms");
     }
 
     @FXML
     private void SetComboBoxShoulders(MouseEvent event) {
+        iShoulders11.setImage(imShoulders11);
+        iShoulders12.setImage(imShoulders12);
+        iShoulders21.setImage(imShoulders21);
+        iShoulders22.setImage(imShoulders22);
+        tfGwbody_part.setValue("shoulders");
     }
 
     @FXML
     private void SetComboBoxBack(MouseEvent event) {
+        iBack.setImage(imBack);
+        tfGwbody_part.setValue("back");
     }
 
     @FXML
     private void SetComboBoxGlutes(MouseEvent event) {
+        iGlutes.setImage(imGlutes);
+        tfGwbody_part.setValue("glutes");
     }
-    
-    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

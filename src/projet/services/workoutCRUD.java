@@ -20,76 +20,73 @@ import projet.tools.MyConnection;
  * @author balti
  */
 public class workoutCRUD {
-    
-    public void addWorkout(workout w){
-         try {
-             String requete ="INSERT INTO workout (nbr_series,duree_serie,body_part,description,name)" + "VALUES (?,?,?,?,?)";
-             PreparedStatement pst =
-                     new MyConnection().cn.prepareStatement(requete);
-                     pst.setInt(1, w.getNbr_series());
-                     pst.setInt(2, w.getDuree_serie());
-                     pst.setString(3, w.getBody_part());
-                     pst.setString(4, w.getDescription());
-                     pst.setString(5, w.getName());
-                     pst.executeUpdate();
-                     
-                     System.out.println("Workout ajoutée!");
-         } catch (SQLException ex) {
-             Logger.getLogger(workoutCRUD.class.getName()).log(Level.SEVERE, null, ex);
-         }
-     }
-    
-    
-    public ObservableList<workout> showWorkout(){
+
+    public void addWorkout(workout w) {
+        try {
+            String requete = "INSERT INTO workout (nbr_series,duree_serie,body_part,description,name)" + "VALUES (?,?,?,?,?)";
+            PreparedStatement pst
+                    = new MyConnection().cn.prepareStatement(requete);
+            pst.setInt(1, w.getNbr_series());
+            pst.setInt(2, w.getDuree_serie());
+            pst.setString(3, w.getBody_part());
+            pst.setString(4, w.getDescription());
+            pst.setString(5, w.getName());
+            pst.executeUpdate();
+
+            System.out.println("Workout ajoutée!");
+        } catch (SQLException ex) {
+            Logger.getLogger(workoutCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public ObservableList<workout> showWorkout() {
         ObservableList<workout> list = FXCollections.observableArrayList();
         try {
-            String requete ="SELECT * FROM workout";
-            PreparedStatement pst =
-                    new MyConnection().cn.prepareStatement(requete);
+            String requete = "SELECT * FROM workout";
+            PreparedStatement pst
+                    = new MyConnection().cn.prepareStatement(requete);
             ResultSet rs = pst.executeQuery();
-            
-            while(rs.next()){
-                list.add(new workout(rs.getInt("id"),rs.getInt("nbr_series"), rs.getInt("duree_serie"), rs.getString("body_part"), rs.getString("description"), rs.getString("name")));
+
+            while (rs.next()) {
+                list.add(new workout(rs.getInt("id"), rs.getInt("nbr_series"), rs.getInt("duree_serie"), rs.getString("body_part"), rs.getString("description"), rs.getString("name")));
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(workoutCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
-    
-    
-    public void editWorkout(workout w){
+
+    public void editWorkout(workout w) {
         try {
 
-            String requete ="UPDATE workout SET nbr_series= ? ,duree_serie= ? ,body_part= ? ,description= ? ,name= ? where id = ? ";
-            PreparedStatement pst =
-                    new MyConnection().cn.prepareStatement(requete);   ;
-                    pst.setInt(1, w.getNbr_series());
-                    pst.setInt(2, w.getDuree_serie());
-                    pst.setString(3, w.getBody_part());
-                    pst.setString(4, w.getDescription());
-                    pst.setString(5, w.getName());
-                    pst.setInt(6, w.getId());
-                    pst.executeUpdate();
-                    
-                 System.out.println("Workout modifiée!");
-                     
+            String requete = "UPDATE workout SET nbr_series= ? ,duree_serie= ? ,body_part= ? ,description= ? ,name= ? where id = ? ";
+            PreparedStatement pst
+                    = new MyConnection().cn.prepareStatement(requete);;
+            pst.setInt(1, w.getNbr_series());
+            pst.setInt(2, w.getDuree_serie());
+            pst.setString(3, w.getBody_part());
+            pst.setString(4, w.getDescription());
+            pst.setString(5, w.getName());
+            pst.setInt(6, w.getId());
+            pst.executeUpdate();
+
+            System.out.println("Workout modifiée!");
+
         } catch (SQLException ex) {
             Logger.getLogger(workoutCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
+
     }
-    
-    
-    public void deleteWorkout(int id){
+
+    public void deleteWorkout(int id) {
         try {
-            String requete ="DELETE FROM workout WHERE id = ?";
-            PreparedStatement pst =
-                    new MyConnection().cn.prepareStatement(requete);
+            String requete = "DELETE FROM workout WHERE id = ?";
+            PreparedStatement pst
+                    = new MyConnection().cn.prepareStatement(requete);
             pst.setInt(1, id);
-            pst.executeUpdate();           
-            
+            pst.executeUpdate();
+
         } catch (SQLException ex) {
             Logger.getLogger(workoutCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
