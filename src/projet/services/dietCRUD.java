@@ -91,4 +91,23 @@ public class dietCRUD {
             Logger.getLogger(workoutCRUD.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public ObservableList<diet> showDietUser(String calories) {
+        ObservableList<diet> list = FXCollections.observableArrayList();
+        try {
+            String requete = "SELECT * FROM `diet` WHERE calories= ? ORDER BY RAND() LIMIT 1";
+            PreparedStatement pst
+                    = new MyConnection().cn.prepareStatement(requete);
+            pst.setString(1, calories);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                list.add(new diet( rs.getString("breakfast"), rs.getString("lunch"), rs.getString("dinner"), rs.getString("snacks"), rs.getString("calories")));
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(workoutCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
 }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="525.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.HomePageDietController">
+   <children>
+      <Pane layoutY="-2.0" onMouseClicked="#resetValues" prefHeight="525.0" prefWidth="1000.0" />
+      <TextArea fx:id="tfLunchUser" editable="false" layoutX="763.0" layoutY="94.0" prefHeight="89.0" prefWidth="200.0" />
+      <TextArea fx:id="tfDinnerUser" editable="false" layoutX="375.0" layoutY="319.0" prefHeight="90.0" prefWidth="200.0" />
+      <TextArea fx:id="tfBreakfastUser" editable="false" layoutX="375.0" layoutY="94.0" prefHeight="90.0" prefWidth="200.0" />
+      <TextArea fx:id="tfSnacksUser" editable="false" layoutX="763.0" layoutY="319.0" prefHeight="90.0" prefWidth="200.0" />
+      <Label layoutX="45.0" layoutY="195.0" text="Veuillez entre le nombre des calories " />
+      <Button fx:id="pdfPrintDiet" layoutX="863.0" layoutY="473.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="124.0" text="Button" />
+      <Button fx:id="reroll" layoutX="68.0" layoutY="351.0" mnemonicParsing="false" onAction="#rerollDiet" prefHeight="26.0" prefWidth="150.0" text="Reroll" />
+      <Button fx:id="transitionCRUD" layoutX="863.0" layoutY="436.0" mnemonicParsing="false" onAction="#transitionCRUDdiet" text="Gestion des régimes" />
+      <ComboBox fx:id="CbCaloriesUser" layoutX="69.0" layoutY="258.0" prefWidth="150.0" />
+      <Label layoutX="375.0" layoutY="61.0" text="Breakfast" />
+      <Label layoutX="763.0" layoutY="284.0" text="Snacks" />
+      <Label layoutX="375.0" layoutY="284.0" text="Dinner" />
+      <Label layoutX="763.0" layoutY="61.0" text="Lunch" />
+      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="271.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="658.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="271.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="658.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="showDiet" layoutX="69.0" layoutY="306.0" mnemonicParsing="false" onAction="#rerollDiet" prefHeight="26.0" prefWidth="150.0" text="Confirmer" />
+   </children>
+</AnchorPane>

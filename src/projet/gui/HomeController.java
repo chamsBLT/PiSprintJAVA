@@ -58,7 +58,7 @@ public class HomeController implements Initializable {
     @FXML
     private void AfficherDietNavigation(ActionEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowDiet.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePageDiet.fxml"));
             Parent root =(Parent) loader.load();
             Stage stage = new Stage();
             stage.setTitle("Gestion diet");

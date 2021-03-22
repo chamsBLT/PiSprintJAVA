@@ -6,8 +6,9 @@
 package projet.tests;
 
 import javafx.collections.ObservableList;
+import projet.entities.diet;
 import projet.services.ingredientCRUD;
-import projet.services.workoutCRUD;
+import projet.services.dietCRUD;
 import projet.tools.MyConnection;
 
 /**
@@ -17,10 +18,11 @@ import projet.tools.MyConnection;
 public class MainClass {
      public static void main(String[] args) {
         MyConnection mc = new MyConnection();
-        ingredientCRUD icd = new ingredientCRUD();
-        String test = "2000";
-            ObservableList<String> autoCompleteBreakfast = icd.showIngredientDinner(test);
         
-         System.out.println(autoCompleteBreakfast);
+        ObservableList<diet> listD;
+        dietCRUD dcd = new dietCRUD();
+        listD = dcd.showDiet();
+        
+        
     }
 }
