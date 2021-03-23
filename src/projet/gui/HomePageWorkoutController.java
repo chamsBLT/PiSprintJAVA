@@ -24,6 +24,7 @@ import projet.services.workoutMETIER;
 import java.util.stream.Collectors;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -154,27 +155,19 @@ public class HomePageWorkoutController implements Initializable {
 
     @FXML
     private void retourhomeNavigation(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
-            Parent root = loader.load();
-            btwTansitionGRUDW.getScene().setRoot(root);
-        } catch (IOException ex) {
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+         Stage stage = (Stage) btnRetour.getScene().getWindow();
+         stage.close();
     }
 
     @FXML
-    private void crudNavigation(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowWorkout.fxml"));
-            Parent root = (Parent) loader.load();
-            Stage stage = new Stage();
-            stage.setTitle("Gestion Workout");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    private void crudNavigation(ActionEvent event) throws IOException {
+        
+            Parent WcrudParent = FXMLLoader.load(getClass().getResource("ShowWorkout.fxml"));
+            Scene WcrudScene =new Scene(WcrudParent);
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(WcrudScene);
+            window.show();
+        
     }
 
 }

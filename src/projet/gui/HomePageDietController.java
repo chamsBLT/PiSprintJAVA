@@ -5,6 +5,14 @@
  */
 package projet.gui;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
+import java.awt.Desktop;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -54,9 +62,10 @@ public class HomePageDietController implements Initializable {
     private ComboBox<String> CbCaloriesUser;
     @FXML
     private Button transitionCRUD;
-    ObservableList<diet> listDu;
-
+    @FXML
+    private Button downloadBtn;
     ObservableList calories_list = FXCollections.observableArrayList();
+    ObservableList<diet> listDu;
 
     private void afficherComboBox() {
         calories_list.removeAll(calories_list);
@@ -118,9 +127,45 @@ public class HomePageDietController implements Initializable {
         tfSnacksUser.setText(null);
     }
 
+    @FXML
+    private void downloadpdf(ActionEvent event) throws DocumentException {
+        if(CbCaloriesUser.getValue()==null){
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.initStyle(StageStyle.UTILITY);
+            alert.setTitle("Régimes");
+            alert.setHeaderText(null);
+            alert.setContentText("Aucun régime n'est sélectionné!");
+            alert.showAndWait();
+        }
+        else{
+        try {
+            String file_name =("Regime.pdf");
+            Document document = new Document();
+
+            PdfWriter.getInstance(document, new FileOutputStream(file_name));
+            
+            document.open();
+            
+            Paragraph para = new Paragraph("Test Paragraph");
+            document.add(para);
+            
+            document.close();
+            try {
+                Desktop.getDesktop().open(new File(file_name));
+            } catch (IOException ex) {
+                Logger.getLogger(HomePageDietController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            System.out.println("Done");
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(HomePageDietController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         afficherComboBox();
 
     }
+
 }
