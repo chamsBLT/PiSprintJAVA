@@ -5,10 +5,19 @@
  */
 package projet.gui;
 
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Rectangle;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
+import com.sun.scenario.effect.ImageData;
+import static com.sun.xml.internal.fastinfoset.alphabet.BuiltInRestrictedAlphabets.table;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -128,40 +137,71 @@ public class HomePageDietController implements Initializable {
     }
 
     @FXML
-    private void downloadpdf(ActionEvent event) throws DocumentException {
-        if(CbCaloriesUser.getValue()==null){
-        Alert alert = new Alert(Alert.AlertType.WARNING);
+    private void downloadpdf(ActionEvent event) throws DocumentException, BadElementException, IOException {
+        if (CbCaloriesUser.getValue() == null) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.initStyle(StageStyle.UTILITY);
             alert.setTitle("Régimes");
             alert.setHeaderText(null);
             alert.setContentText("Aucun régime n'est sélectionné!");
             alert.showAndWait();
-        }
-        else{
-        try {
-            String file_name =("Regime.pdf");
-            Document document = new Document();
-
-            PdfWriter.getInstance(document, new FileOutputStream(file_name));
-            
-            document.open();
-            
-            Paragraph para = new Paragraph("Test Paragraph");
-            document.add(para);
-            
-            document.close();
+        } else {
             try {
-                Desktop.getDesktop().open(new File(file_name));
-            } catch (IOException ex) {
+                String file_name = ("Regime.pdf");
+                Document document = new Document();
+
+                PdfWriter.getInstance(document, new FileOutputStream(file_name));
+
+                document.open();
+
+                Image LogoSportunus = Image.getInstance("src\\Graphics\\Logo_Diet_pdf.png");
+                LogoSportunus.setAlignment(Element.ALIGN_CENTER);
+                document.add(LogoSportunus);
+                
+                Paragraph paraHeader1 = new Paragraph("\n\nVous avez choisi un régime de "+CbCaloriesUser.getValue()+" calories , au date du "+java.time.LocalDate.now()+".\n");
+                document.add(paraHeader1);
+                
+                Paragraph paraHeader2 = new Paragraph("Le plan de votre régime est comme suit :\n\n\n ");
+                document.add(paraHeader2);
+
+                Image imageBreakfast = Image.getInstance("src\\Graphics\\breakfast_icon.png");
+                Paragraph paraBreakfast = new Paragraph("Breakfast : \n\n" + tfBreakfastUser.getText());
+
+                Image imageLunch = Image.getInstance("src\\Graphics\\lunch_icon.png");
+                Paragraph paraLunch = new Paragraph("Lunch : \n\n" + tfLunchUser.getText());
+
+                Image imageDinner = Image.getInstance("src\\Graphics\\dinner_icon.png");
+                Paragraph paraDinner = new Paragraph("Dinner : \n\n" + tfDinnerUser.getText());
+
+                Image imageSnacks = Image.getInstance("src\\Graphics\\snacks_icon.png");
+                Paragraph paraSnacks = new Paragraph("Snacks : \n\n " + tfSnacksUser.getText());
+
+                float[] pointColumnWidths = {2, 10};
+                PdfPTable table = new PdfPTable(pointColumnWidths);
+
+                table.addCell(imageBreakfast);
+                table.addCell(paraBreakfast);
+                table.addCell(imageLunch);
+                table.addCell(paraLunch);
+                table.addCell(imageDinner);
+                table.addCell(paraDinner);
+                table.addCell(imageSnacks);
+                table.addCell(paraSnacks);
+                document.add(table);
+                
+                document.close();
+                try {
+                    Desktop.getDesktop().open(new File(file_name));
+                } catch (IOException ex) {
+                    Logger.getLogger(HomePageDietController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            } catch (FileNotFoundException ex) {
                 Logger.getLogger(HomePageDietController.class.getName()).log(Level.SEVERE, null, ex);
             }
-            System.out.println("Done");
-
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(HomePageDietController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         afficherComboBox();

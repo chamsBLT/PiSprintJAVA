@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -27,10 +28,22 @@
       <Label layoutX="763.0" layoutY="284.0" text="Snacks" />
       <Label layoutX="375.0" layoutY="284.0" text="Dinner" />
       <Label layoutX="763.0" layoutY="61.0" text="Lunch" />
-      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="271.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="658.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="271.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true" />
-      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="658.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="271.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Graphics/breakfast_icon.png" />
+         </image></ImageView>
+      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="658.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Graphics/lunch_icon.png" />
+         </image></ImageView>
+      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="271.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Graphics/dinner_icon.png" />
+         </image></ImageView>
+      <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="658.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Graphics/snacks_icon.png" />
+         </image></ImageView>
       <Button fx:id="showDiet" layoutX="69.0" layoutY="306.0" mnemonicParsing="false" onAction="#rerollDiet" prefHeight="26.0" prefWidth="150.0" text="Confirmer" />
    </children>
 </AnchorPane>
