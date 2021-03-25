@@ -30,6 +30,7 @@ public class StartPoint extends Application {
 
             primaryStage.setTitle("Sportunus App");
             primaryStage.setScene(scene);
+            scene.getStylesheets().add(getClass().getResource("/Graphics/AppCss/home.css").toExternalForm());
             primaryStage.show();
         } catch (IOException ex) {
             Logger.getLogger(StartPoint.class.getName()).log(Level.SEVERE, null, ex);
