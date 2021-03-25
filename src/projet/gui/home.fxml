@@ -2,21 +2,38 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="558.0" prefWidth="949.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.HomeController">
    <children>
-      <Button fx:id="btnDiet" layoutX="323.0" layoutY="297.0" mnemonicParsing="false" onAction="#AfficherDietNavigation" prefHeight="90.0" prefWidth="302.0" text="Diet">
+      <Button fx:id="btnDiet" layoutX="396.0" layoutY="350.0" mnemonicParsing="false" onAction="#AfficherDietNavigation" prefHeight="90.0" prefWidth="302.0" text="Régime" textAlignment="CENTER">
          <font>
             <Font name="Arial Bold Italic" size="40.0" />
          </font></Button>
-      <Button fx:id="btnWorkout" layoutX="323.0" layoutY="171.0" mnemonicParsing="false" onAction="#AfficherWorkoutNavigation" prefHeight="90.0" prefWidth="302.0" text="Workout">
+      <Button fx:id="btnWorkout" layoutX="396.0" layoutY="117.0" mnemonicParsing="false" onAction="#AfficherWorkoutNavigation" prefHeight="90.0" prefWidth="302.0" text="Sport">
          <font>
             <Font name="Arial Bold Italic" size="40.0" />
          </font>
          <effect>
             <Glow level="0.0" />
          </effect></Button>
+      <ImageView fx:id="WorkoutLogo" fitHeight="150.0" fitWidth="200.0" layoutX="159.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Graphics/workout_logo_home.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="DietLogo" fitHeight="150.0" fitWidth="200.0" layoutX="159.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Graphics/diet_logo_home.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="SportunusLogo" fitHeight="150.0" fitWidth="200.0" layoutX="793.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Graphics/Sportunus_logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

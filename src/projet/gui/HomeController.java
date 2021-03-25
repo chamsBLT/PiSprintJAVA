@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
@@ -30,6 +31,12 @@ public class HomeController implements Initializable {
     private Button btnWorkout;
     @FXML
     private Button btnDiet;
+    @FXML
+    private ImageView WorkoutLogo;
+    @FXML
+    private ImageView DietLogo;
+    @FXML
+    private ImageView SportunusLogo;
 
     /**
      * Initializes the controller class.
@@ -46,8 +53,8 @@ public class HomeController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePageWorkout.fxml"));
             Parent root =(Parent) loader.load();
             Stage stage = new Stage();
-            stage.setTitle("Workout");
-            stage.setScene(new Scene(root));
+            stage.setTitle("Sport");
+            stage.setScene(new Scene(root,1000,525));
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
@@ -61,8 +68,8 @@ public class HomeController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePageDiet.fxml"));
             Parent root =(Parent) loader.load();
             Stage stage = new Stage();
-            stage.setTitle("Gestion diet");
-            stage.setScene(new Scene(root));
+            stage.setTitle("Régime");
+            stage.setScene(new Scene(root,1000,525));
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);

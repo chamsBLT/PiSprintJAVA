@@ -24,11 +24,11 @@ public class StartPoint extends Application {
     public void start(Stage primaryStage) {
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("HomePageDiet.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
 
             Scene scene = new Scene(root);
 
-            primaryStage.setTitle("Sportunus");
+            primaryStage.setTitle("Sportunus App");
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {
