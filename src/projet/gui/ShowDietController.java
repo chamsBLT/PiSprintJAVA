@@ -326,14 +326,9 @@ public class ShowDietController implements Initializable {
     }
 
     @FXML
-    private void mainTransition(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Home.fxml"));
-            Parent root = loader.load();
-            btnRetour.getScene().setRoot(root);
-        } catch (IOException ex) {
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    private void closeWindow(ActionEvent event) {
+        Stage stage = (Stage) btnRetour.getScene().getWindow();
+        stage.close();
     }
 
     @FXML

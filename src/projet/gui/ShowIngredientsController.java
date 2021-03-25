@@ -22,6 +22,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import projet.entities.ingredient;
 import projet.services.ingredientCRUD;
@@ -226,6 +227,8 @@ public class ShowIngredientsController implements Initializable {
 
     @FXML
     private void FermerFenetre(ActionEvent event) {
+        Stage stage = (Stage) btnFermer.getScene().getWindow();
+        stage.close();
     }
 
     @FXML

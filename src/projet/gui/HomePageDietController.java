@@ -11,13 +11,8 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
-import com.itextpdf.text.Rectangle;
-import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.sun.scenario.effect.ImageData;
-import static com.sun.xml.internal.fastinfoset.alphabet.BuiltInRestrictedAlphabets.table;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -62,8 +57,6 @@ public class HomePageDietController implements Initializable {
     @FXML
     private TextArea tfSnacksUser;
     @FXML
-    private Button pdfPrintDiet;
-    @FXML
     private Button reroll;
     @FXML
     private Button showDiet;
@@ -75,6 +68,8 @@ public class HomePageDietController implements Initializable {
     private Button downloadBtn;
     ObservableList calories_list = FXCollections.observableArrayList();
     ObservableList<diet> listDu;
+    @FXML
+    private Button btnClose;
 
     private void afficherComboBox() {
         calories_list.removeAll(calories_list);
@@ -157,10 +152,10 @@ public class HomePageDietController implements Initializable {
                 Image LogoSportunus = Image.getInstance("src\\Graphics\\Logo_Diet_pdf.png");
                 LogoSportunus.setAlignment(Element.ALIGN_CENTER);
                 document.add(LogoSportunus);
-                
-                Paragraph paraHeader1 = new Paragraph("\n\nVous avez choisi un régime de "+CbCaloriesUser.getValue()+" calories , au date du "+java.time.LocalDate.now()+".\n");
+
+                Paragraph paraHeader1 = new Paragraph("\n\nVous avez choisi un régime de " + CbCaloriesUser.getValue() + " calories , au date du " + java.time.LocalDate.now() + ".\n");
                 document.add(paraHeader1);
-                
+
                 Paragraph paraHeader2 = new Paragraph("Le plan de votre régime est comme suit :\n\n\n ");
                 document.add(paraHeader2);
 
@@ -188,7 +183,7 @@ public class HomePageDietController implements Initializable {
                 table.addCell(imageSnacks);
                 table.addCell(paraSnacks);
                 document.add(table);
-                
+
                 document.close();
                 try {
                     Desktop.getDesktop().open(new File(file_name));
@@ -206,6 +201,12 @@ public class HomePageDietController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         afficherComboBox();
 
+    }
+
+    @FXML
+    private void closeWindow(ActionEvent event) {
+        Stage stage = (Stage) btnClose.getScene().getWindow();
+        stage.close();
     }
 
 }

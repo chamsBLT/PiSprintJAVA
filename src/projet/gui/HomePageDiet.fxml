@@ -8,26 +8,27 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="525.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.HomePageDietController">
    <children>
       <Pane layoutY="-2.0" onMouseClicked="#resetValues" prefHeight="525.0" prefWidth="1000.0">
          <children>
-            <Button fx:id="downloadBtn" layoutX="69.0" layoutY="396.0" mnemonicParsing="false" onAction="#downloadpdf" prefHeight="25.0" prefWidth="150.0" text="Télécharger" />
-            <Button fx:id="transitionCRUD" layoutX="836.0" layoutY="450.0" mnemonicParsing="false" onAction="#transitionCRUDdiet" prefHeight="26.0" prefWidth="150.0" text="Gestion des régimes" />
-            <Button fx:id="pdfPrintDiet" layoutX="836.0" layoutY="486.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="150.0" text="Fermer" />
+            <Button fx:id="downloadBtn" layoutX="69.0" layoutY="396.0" mnemonicParsing="false" onAction="#downloadpdf" prefHeight="26.0" prefWidth="150.0" text="Télécharger" />
+            <Button fx:id="transitionCRUD" layoutX="772.0" layoutY="449.0" mnemonicParsing="false" onAction="#transitionCRUDdiet" prefHeight="26.0" prefWidth="191.0" text="Gestion des régimes" />
+            <Button fx:id="btnClose" layoutX="772.0" layoutY="487.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="26.0" prefWidth="191.0" text="Fermer" />
+            <Text layoutX="82.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez choisir le nombre des calories pour le régimes que vous voulez suivre." wrappingWidth="124.55584716796875" />
          </children></Pane>
       <TextArea fx:id="tfLunchUser" editable="false" layoutX="763.0" layoutY="94.0" prefHeight="89.0" prefWidth="200.0" />
       <TextArea fx:id="tfDinnerUser" editable="false" layoutX="375.0" layoutY="319.0" prefHeight="90.0" prefWidth="200.0" />
       <TextArea fx:id="tfBreakfastUser" editable="false" layoutX="375.0" layoutY="94.0" prefHeight="90.0" prefWidth="200.0" />
       <TextArea fx:id="tfSnacksUser" editable="false" layoutX="763.0" layoutY="319.0" prefHeight="90.0" prefWidth="200.0" />
-      <Label layoutX="45.0" layoutY="195.0" text="Veuillez entre le nombre des calories " />
-      <Button fx:id="reroll" layoutX="68.0" layoutY="351.0" mnemonicParsing="false" onAction="#rerollDiet" prefHeight="26.0" prefWidth="150.0" text="Reroll" />
-      <ComboBox fx:id="CbCaloriesUser" layoutX="69.0" layoutY="258.0" prefWidth="150.0" />
-      <Label layoutX="375.0" layoutY="61.0" text="Breakfast" />
-      <Label layoutX="763.0" layoutY="284.0" text="Snacks" />
-      <Label layoutX="375.0" layoutY="284.0" text="Dinner" />
-      <Label layoutX="763.0" layoutY="61.0" text="Lunch" />
+      <Button fx:id="reroll" layoutX="68.0" layoutY="351.0" mnemonicParsing="false" onAction="#rerollDiet" prefHeight="26.0" prefWidth="150.0" text="Relancer" />
+      <ComboBox fx:id="CbCaloriesUser" layoutX="69.0" layoutY="258.0" prefHeight="26.0" prefWidth="150.0" />
+      <Label layoutX="375.0" layoutY="61.0" text="Petit déjeuner" />
+      <Label layoutX="763.0" layoutY="284.0" text="Gouter" />
+      <Label layoutX="375.0" layoutY="284.0" text="Diner" />
+      <Label layoutX="763.0" layoutY="61.0" text="Déjeuner" />
       <ImageView fitHeight="90.0" fitWidth="90.0" layoutX="271.0" layoutY="94.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Graphics/breakfast_icon.png" />

@@ -155,19 +155,19 @@ public class HomePageWorkoutController implements Initializable {
 
     @FXML
     private void retourhomeNavigation(ActionEvent event) {
-         Stage stage = (Stage) btnRetour.getScene().getWindow();
-         stage.close();
+        Stage stage = (Stage) btnRetour.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
     private void crudNavigation(ActionEvent event) throws IOException {
-        
-            Parent WcrudParent = FXMLLoader.load(getClass().getResource("ShowWorkout.fxml"));
-            Scene WcrudScene =new Scene(WcrudParent);
-            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-            window.setScene(WcrudScene);
-            window.show();
-        
+
+        Parent WcrudParent = FXMLLoader.load(getClass().getResource("ShowWorkout.fxml"));
+        Scene WcrudScene = new Scene(WcrudParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(WcrudScene);
+        window.show();
+
     }
 
 }

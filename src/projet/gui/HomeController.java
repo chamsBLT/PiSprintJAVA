@@ -44,36 +44,34 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-
+    }
 
     @FXML
     private void AfficherWorkoutNavigation(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePageWorkout.fxml"));
-            Parent root =(Parent) loader.load();
+            Parent root = (Parent) loader.load();
             Stage stage = new Stage();
             stage.setTitle("Sport");
-            stage.setScene(new Scene(root,1000,525));
+            stage.setScene(new Scene(root, 1000, 525));
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
 
     @FXML
     private void AfficherDietNavigation(ActionEvent event) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePageDiet.fxml"));
-            Parent root =(Parent) loader.load();
+            Parent root = (Parent) loader.load();
             Stage stage = new Stage();
             stage.setTitle("Régime");
-            stage.setScene(new Scene(root,1000,525));
+            stage.setScene(new Scene(root, 1000, 525));
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
 }

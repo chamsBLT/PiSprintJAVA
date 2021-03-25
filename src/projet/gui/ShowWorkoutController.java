@@ -19,7 +19,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -33,6 +35,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import projet.entities.workout;
 import projet.services.workoutCRUD;
@@ -117,7 +120,10 @@ public class ShowWorkoutController implements Initializable {
     private ImageView iArms22;
     @FXML
     private ImageView iShoulders22;
+    @FXML
+    private ListView<String> listStats2;
 
+    ObservableList<String> listW2;
     ObservableList<Integer> listW1;
     ObservableList<workout> listW;
     ObservableList<workout> dataList;
@@ -228,6 +234,7 @@ public class ShowWorkoutController implements Initializable {
             wcd.addWorkout(w);
             majTable();
             recherche_workout();
+            ShowStats();
         }
     }
 
@@ -273,6 +280,7 @@ public class ShowWorkoutController implements Initializable {
                 wcd.editWorkout(w);
                 majTable();
                 recherche_workout();
+                ShowStats();
             } else {
                 return;
             }
@@ -318,6 +326,7 @@ public class ShowWorkoutController implements Initializable {
             }
             majTable();
             recherche_workout();
+            ShowStats();
         }
     }
 
@@ -358,8 +367,10 @@ public class ShowWorkoutController implements Initializable {
 
     private void ShowStats() {
         workoutMETIER wm = new workoutMETIER();
-        listW1 = wm.showWorkoutStats();
+        listW1 = wm.showWorkoutStatsNumbers();
+        listW2 = wm.showWorkoutStatsNames();
         listStats.setItems(listW1);
+        listStats2.setItems(listW2);
     }
 
     @FXML
@@ -418,14 +429,12 @@ public class ShowWorkoutController implements Initializable {
     }
 
     @FXML
-    private void workoutmainTransition(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("HomePageWorkout.fxml"));
-            Parent root = loader.load();
-            btnRetour.getScene().setRoot(root);
-        } catch (IOException ex) {
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    private void workoutmainTransition(ActionEvent event) throws IOException {
+        Parent WcrudParent = FXMLLoader.load(getClass().getResource("HomePageWorkout.fxml"));
+        Scene WcrudScene = new Scene(WcrudParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(WcrudScene);
+        window.show();
 
     }
 

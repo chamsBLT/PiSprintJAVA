@@ -61,7 +61,7 @@ public class workoutMETIER {
         return list;
     }
 
-    public ObservableList<Integer> showWorkoutStats() {
+    public ObservableList<Integer> showWorkoutStatsNumbers() {
 
         ObservableList<Integer> list = FXCollections.observableArrayList();
         try {
@@ -72,6 +72,25 @@ public class workoutMETIER {
 
             while (rs.next()) {
                 list.add(rs.getInt("n"));
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(workoutCRUD.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+
+    public ObservableList<String> showWorkoutStatsNames() {
+
+        ObservableList<String> list = FXCollections.observableArrayList();
+        try {
+            String requete = "SELECT body_part FROM workout GROUP BY body_part ORDER BY body_part";
+            PreparedStatement pst
+                    = new MyConnection().cn.prepareStatement(requete);
+            ResultSet rs = pst.executeQuery();
+
+            while (rs.next()) {
+                list.add(rs.getString("body_part"));
             }
 
         } catch (SQLException ex) {
