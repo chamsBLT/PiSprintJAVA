@@ -35,6 +35,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import projet.entities.workout;
@@ -154,6 +155,12 @@ public class ShowWorkoutController implements Initializable {
     Image imBack = new Image("/Graphics/Back.png");
 
     Image imChest = new Image("/Graphics/Chest.png");
+    @FXML
+    private Pane backgroundPane;
+    @FXML
+    private Pane CRUDpane;
+    @FXML
+    private Pane statsPane;
 
     @FXML
     private void getSelectedWorkout(MouseEvent event) {

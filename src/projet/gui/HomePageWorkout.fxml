@@ -6,28 +6,64 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="listview" prefHeight="525.0" prefWidth="1000.0" style="-fx-background-color: d4fde3;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.HomePageWorkoutController">
    <children>
+      <Pane fx:id="detailsPane" layoutX="676.0" layoutY="16.0" prefHeight="330.0" prefWidth="311.0" />
       <TextField fx:id="tfHnbr_series" editable="false" layoutX="828.0" layoutY="39.0" prefWidth="149.0" />
       <TextField fx:id="tfHduree_serie" editable="false" layoutX="828.0" layoutY="80.0" prefWidth="149.0" />
       <TextArea fx:id="tfHdesciption" editable="false" layoutX="828.0" layoutY="131.0" prefHeight="200.0" prefWidth="149.0" />
-      <Button fx:id="btnRetour" layoutX="787.0" layoutY="469.0" mnemonicParsing="false" onAction="#retourhomeNavigation" prefHeight="26.0" prefWidth="190.0" text="Retour" />
-      <Button fx:id="btwTansitionGRUDW" layoutX="788.0" layoutY="429.0" mnemonicParsing="false" onAction="#crudNavigation" prefHeight="26.0" prefWidth="190.0" text="Gestion des exercices" />
-      <Label layoutX="682.0" layoutY="43.0" text="Nombre de séries" />
-      <Label layoutX="682.0" layoutY="84.0" text="Durée de série" />
-      <Label layoutX="682.0" layoutY="131.0" text="Description" />
+      <Button fx:id="btnRetour" layoutX="787.0" layoutY="469.0" mnemonicParsing="false" onAction="#retourhomeNavigation" prefHeight="26.0" prefWidth="190.0" text="Fermer">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Button>
+      <Button fx:id="btwTansitionGRUDW" layoutX="788.0" layoutY="427.0" mnemonicParsing="false" onAction="#crudNavigation" prefHeight="26.0" prefWidth="190.0" text="Gestion des exercices">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font></Button>
+      <Label layoutX="682.0" layoutY="41.0" text="Nombre de séries" textFill="#023796">
+         <font>
+            <Font name="Ebrima Bold" size="16.0" />
+         </font></Label>
+      <Label layoutX="682.0" layoutY="82.0" text="Durée de série" textFill="#023796">
+         <font>
+            <Font name="Ebrima Bold" size="16.0" />
+         </font></Label>
+      <Label layoutX="682.0" layoutY="130.0" text="Description" textFill="#023796">
+         <font>
+            <Font name="Ebrima Bold" size="17.0" />
+         </font></Label>
       <ListView fx:id="ListW_arms" layoutX="46.0" layoutY="80.0" onMouseClicked="#afficherWorkoutDetailsArms" prefHeight="136.0" prefWidth="158.0" />
-      <Label layoutX="46.0" layoutY="43.0" text="Arms" />
+      <Label layoutX="46.0" layoutY="43.0" text="Arms" textFill="#023796">
+         <font>
+            <Font name="Ebrima Bold" size="16.0" />
+         </font></Label>
       <ListView fx:id="ListW_back" layoutX="439.0" layoutY="80.0" onMouseClicked="#afficherWorkoutDetailsBack" prefHeight="136.0" prefWidth="158.0" />
-      <Label layoutX="439.0" layoutY="43.0" text="Back" />
+      <Label layoutX="439.0" layoutY="43.0" text="Back" textFill="#023796">
+         <font>
+            <Font name="Ebrima Bold" size="16.0" />
+         </font></Label>
       <ListView fx:id="ListW_legs" layoutX="46.0" layoutY="326.0" onMouseClicked="#afficherWorkoutDetailsLegs" prefHeight="136.0" prefWidth="158.0" />
       <ListView fx:id="ListW_glutes" layoutX="242.0" layoutY="326.0" onMouseClicked="#afficherWorkoutDetailsGlutes" prefHeight="136.0" prefWidth="158.0" />
       <ListView fx:id="ListW_shoulders" layoutX="242.0" layoutY="80.0" onMouseClicked="#afficherWorkoutDetailsShoulders" prefHeight="136.0" prefWidth="158.0" />
       <ListView fx:id="ListW_abdominals" layoutX="439.0" layoutY="326.0" onMouseClicked="#afficherWorkoutDetailsAbdominals" prefHeight="136.0" prefWidth="158.0" />
-      <Label layoutX="242.0" layoutY="43.0" text="Shoulders" />
-      <Label layoutX="46.0" layoutY="287.0" text="Legs" />
-      <Label layoutX="242.0" layoutY="287.0" text="Glutes" />
-      <Label layoutX="437.0" layoutY="287.0" text="Abdominals" />
+      <Label layoutX="242.0" layoutY="43.0" text="Shoulders" textFill="#023796">
+         <font>
+            <Font name="Ebrima Bold" size="16.0" />
+         </font></Label>
+      <Label layoutX="46.0" layoutY="287.0" text="Legs" textFill="#023796">
+         <font>
+            <Font name="Ebrima Bold" size="16.0" />
+         </font></Label>
+      <Label layoutX="242.0" layoutY="287.0" text="Glutes" textFill="#023796">
+         <font>
+            <Font name="Ebrima Bold" size="16.0" />
+         </font></Label>
+      <Label layoutX="437.0" layoutY="287.0" text="Abdominals" textFill="#023796">
+         <font>
+            <Font name="Ebrima Bold" size="16.0" />
+         </font></Label>
    </children>
 </AnchorPane>

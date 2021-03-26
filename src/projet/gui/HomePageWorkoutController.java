@@ -166,6 +166,7 @@ public class HomePageWorkoutController implements Initializable {
         Scene WcrudScene = new Scene(WcrudParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(WcrudScene);
+        WcrudScene.getStylesheets().add(getClass().getResource("/Graphics/AppCss/ShowWorkout.css").toExternalForm());
         window.show();
 
     }
