@@ -7,13 +7,13 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" fx:id="listview" prefHeight="525.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.HomePageWorkoutController">
+<AnchorPane id="AnchorPane" fx:id="listview" prefHeight="525.0" prefWidth="1000.0" style="-fx-background-color: d4fde3;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.HomePageWorkoutController">
    <children>
       <TextField fx:id="tfHnbr_series" editable="false" layoutX="828.0" layoutY="39.0" prefWidth="149.0" />
       <TextField fx:id="tfHduree_serie" editable="false" layoutX="828.0" layoutY="80.0" prefWidth="149.0" />
       <TextArea fx:id="tfHdesciption" editable="false" layoutX="828.0" layoutY="131.0" prefHeight="200.0" prefWidth="149.0" />
-      <Button fx:id="btnRetour" layoutX="827.0" layoutY="469.0" mnemonicParsing="false" onAction="#retourhomeNavigation" prefHeight="26.0" prefWidth="150.0" text="Retour" />
-      <Button fx:id="btwTansitionGRUDW" layoutX="828.0" layoutY="429.0" mnemonicParsing="false" onAction="#crudNavigation" prefHeight="26.0" prefWidth="150.0" text="Gestion des exercices" />
+      <Button fx:id="btnRetour" layoutX="787.0" layoutY="469.0" mnemonicParsing="false" onAction="#retourhomeNavigation" prefHeight="26.0" prefWidth="190.0" text="Retour" />
+      <Button fx:id="btwTansitionGRUDW" layoutX="788.0" layoutY="429.0" mnemonicParsing="false" onAction="#crudNavigation" prefHeight="26.0" prefWidth="190.0" text="Gestion des exercices" />
       <Label layoutX="682.0" layoutY="43.0" text="Nombre de séries" />
       <Label layoutX="682.0" layoutY="84.0" text="Durée de série" />
       <Label layoutX="682.0" layoutY="131.0" text="Description" />

@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="558.0" prefWidth="949.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.HomeController">
+<AnchorPane id="AnchorPane" fx:id="background" prefHeight="558.0" prefWidth="949.0" style="-fx-background-color: d4fde3;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.HomeController">
    <children>
       <Button fx:id="btnDiet" layoutX="396.0" layoutY="350.0" mnemonicParsing="false" onAction="#AfficherDietNavigation" prefHeight="90.0" prefWidth="302.0" text="Régime" textAlignment="CENTER">
          <font>
@@ -20,12 +20,12 @@
          <effect>
             <Glow level="0.0" />
          </effect></Button>
-      <ImageView fx:id="WorkoutLogo" fitHeight="150.0" fitWidth="200.0" layoutX="159.0" layoutY="88.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="WorkoutLogo" fitHeight="150.0" fitWidth="200.0" layoutX="207.0" layoutY="87.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Graphics/workout_logo_home.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="DietLogo" fitHeight="150.0" fitWidth="200.0" layoutX="159.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="DietLogo" fitHeight="150.0" fitWidth="200.0" layoutX="207.0" layoutY="320.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Graphics/diet_logo_home.png" />
          </image>
