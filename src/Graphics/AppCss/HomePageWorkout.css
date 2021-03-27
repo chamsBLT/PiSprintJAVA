@@ -1,50 +1,53 @@
-#btwTansitionGRUDW{
-    -fx-text-fill: #023796;
-    -fx-background-color: #2edf6e;
-    -fx-border-radius: 20;
-    -fx-background-radius: 20;
-    -fx-padding: 5;    
-}
-#btwTansitionGRUDW:hover {
-    -fx-background-color: #023796;
-    -fx-text-fill: #2edf6e;
-}
-#btnRetour{
-    -fx-text-fill: #023796;
-    -fx-background-color: #2edf6e;
-    -fx-border-radius: 20;
-    -fx-background-radius: 20;
-    -fx-padding: 5;    
-}
-#btnRetour:hover {
-    -fx-background-color: #023796;
-    -fx-text-fill: #2edf6e;
-}
 #detailsPane{
     -fx-background-color:  #2edf6e;
     -fx-background-radius: 20;
 }
-#ListW_shoulders{
-    -fx-background-color:  #2edf6e;
+
+
+#backgroundPane{
+    -fx-background-color: linear-gradient(to bottom, #99ffbe, #6af09b);
 }
-#ListW_back{
-    -fx-background-color:  #2edf6e;
-}
-#ListW_legs{
-    -fx-background-color:  #2edf6e;
-}
-#ListW_glutes{
-    -fx-background-color:  #2edf6e;
-}
-#ListW_abdominals{
-    -fx-background-color:  #2edf6e;
-}
-#ListW_arms{
-    -fx-background-color:  #2edf6e;
-}
-#tfHnbr_series{
+
+
+.button{
+    -fx-text-fill: #023796;
+    -fx-background-color: #2edf6e;
+    -fx-border-radius: 20;
     -fx-background-radius: 20;
+    -fx-padding: 5;    
 }
-#tfHduree_serie{
+.button:hover {
+    -fx-background-color: #023796;
+    -fx-text-fill: #2edf6e;
+}
+
+
+.label{
+    -fx-text-fill: #023796;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Ebrima";  
+}
+
+
+.list-view:focused > .virtual-flow > .clipped-container > .sheet > .list-cell:filled:selected {
+    -fx-background-color: #023796;
+    -fx-text-fill: white;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-table-cell-border-color: derive(-fx-selection-bar, 20%);
+}
+.list-cell:filled:selected {
+    -fx-background-color: transparent;
+    -fx-table-cell-border-color: derive(-fx-selection-bar-non-focused, 20%);
+} 
+.list-cell:filled:hover {
+    -fx-background-color: #2edf6e;
+    -fx-text-fill: white;
+}
+
+
+
+.text-field{
     -fx-background-radius: 20;
 }

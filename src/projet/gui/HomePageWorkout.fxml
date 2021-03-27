@@ -9,8 +9,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="listview" prefHeight="525.0" prefWidth="1000.0" style="-fx-background-color: d4fde3;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.HomePageWorkoutController">
+<AnchorPane id="AnchorPane" fx:id="listview" prefHeight="525.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.HomePageWorkoutController">
    <children>
+      <Pane fx:id="backgroundPane" layoutY="-1.0" prefHeight="526.0" prefWidth="1000.0" />
       <Pane fx:id="detailsPane" layoutX="676.0" layoutY="16.0" prefHeight="330.0" prefWidth="311.0" />
       <TextField fx:id="tfHnbr_series" editable="false" layoutX="828.0" layoutY="39.0" prefWidth="149.0" />
       <TextField fx:id="tfHduree_serie" editable="false" layoutX="828.0" layoutY="80.0" prefWidth="149.0" />
@@ -41,7 +42,7 @@
             <Font name="Ebrima Bold" size="16.0" />
          </font></Label>
       <ListView fx:id="ListW_back" layoutX="439.0" layoutY="80.0" onMouseClicked="#afficherWorkoutDetailsBack" prefHeight="136.0" prefWidth="158.0" />
-      <Label layoutX="439.0" layoutY="43.0" text="Back" textFill="#023796">
+      <Label layoutX="439.0" layoutY="43.0" text="Back">
          <font>
             <Font name="Ebrima Bold" size="16.0" />
          </font></Label>

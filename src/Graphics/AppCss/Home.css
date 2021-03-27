@@ -1,22 +1,16 @@
-#btnWorkout{
+.button{
     -fx-text-fill: #023796;
     -fx-background-color: #2edf6e;
     -fx-border-radius: 20;
     -fx-background-radius: 20;
     -fx-padding: 5;
 }
-#btnWorkout:hover {
+.button:hover {
   -fx-background-color: #023796;
   -fx-text-fill: #2edf6e;
 }
-#btnDiet{
-    -fx-text-fill: #023796;
-    -fx-background-color: #2edf6e;
-    -fx-border-radius: 20;
-    -fx-background-radius: 20;
-    -fx-padding: 5;
+
+#backgroundPane{
+   -fx-background-color: linear-gradient(to bottom, #99ffbe, #6af09b);
 }
-#btnDiet:hover {
-  -fx-background-color: #023796;
-  -fx-text-fill: #2edf6e;
-}
+
