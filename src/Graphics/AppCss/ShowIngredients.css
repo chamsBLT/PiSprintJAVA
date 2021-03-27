@@ -1,0 +1,93 @@
+#fieldsPane{
+    -fx-background-color:  #2edf6e;
+    -fx-background-radius: 20;
+}
+#backgroundPane{
+    -fx-background-color: linear-gradient(to bottom, #99ffbe, #6af09b);
+}
+
+.button{
+    -fx-text-fill: #023796;
+    -fx-background-color: #2edf6e;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 5;    
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Ebrima";   
+}
+.button:hover {
+    -fx-background-color: #023796;
+    -fx-text-fill: #2edf6e;
+}
+
+
+.combo-box {
+    -fx-background-radius: 20;
+}
+
+
+.text-field{
+    -fx-background-radius: 20;
+}
+
+
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-background-color: #023796;
+    -fx-text-fill: white;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+}
+.list-cell:even {
+    -fx-background-color: white;
+}
+.list-cell:filled:hover {
+    -fx-background-color: #2edf6e;
+    -fx-text-fill: white;
+}
+
+
+.table-view{
+    -fx-background-color: transparent;   
+}
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+.table-view .column-header-background{
+    -fx-background-color: #023796;
+    -fx-background-radius: 20;
+    -fx-background-insets: 0 11px 0 0;
+    -fx-padding: 0 0 5px 0;
+}
+.table-view .column-header-background .label{
+    -fx-text-fill: #2edf6e;
+}
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+.table-view .table-cell{
+    -fx-border-color: transparent;
+    -fx-padding: 2 0 2 10px;
+}
+.table-row-cell:hover {
+    -fx-background-color: #93f9b911;
+    -fx-text-background-color: #023796;
+}
+.table-row-cell:focused {
+    -fx-background-color: #93f9b911;
+    -fx-text-background-color: #023796;
+    -fx-font-weight: bold;
+}
+.table-row-cell:odd{
+    -fx-background-color: #93f9b911;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}
+.table-row-cell:even{
+    -fx-background-color: #1dbbdd11;
+    -fx-background-insets: 0, 0 0 1 0;
+    -fx-padding: 0.0em;
+}

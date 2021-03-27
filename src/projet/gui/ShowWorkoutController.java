@@ -9,8 +9,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -441,6 +439,7 @@ public class ShowWorkoutController implements Initializable {
         Scene WcrudScene = new Scene(WcrudParent);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(WcrudScene);
+        WcrudScene.getStylesheets().add(getClass().getResource("/Graphics/AppCss/HomePageWorkout.css").toExternalForm());
         window.show();
 
     }

@@ -11,7 +11,10 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.ShowIngredientsController">
    <children>
-      <Pane layoutX="1.0" onMouseClicked="#ResetValues" prefHeight="400.0" prefWidth="600.0" />
+      <Pane fx:id="backgroundPane" layoutX="1.0" onMouseClicked="#ResetValues" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <Pane fx:id="fieldsPane" layoutX="14.0" layoutY="44.0" prefHeight="232.0" prefWidth="249.0" />
+         </children></Pane>
       <TextField fx:id="tfIngId" editable="false" layoutX="101.0" layoutY="67.0" prefWidth="150.0" />
       <TextField fx:id="tfIngName" layoutX="101.0" layoutY="118.0" prefWidth="150.0" />
       <ComboBox fx:id="cbIngCategory" layoutX="100.0" layoutY="167.0" prefWidth="150.0" />

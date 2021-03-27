@@ -72,7 +72,9 @@ public class HomeController implements Initializable {
             Parent root = (Parent) loader.load();
             Stage stage = new Stage();
             stage.setTitle("Régime");
-            stage.setScene(new Scene(root, 1000, 525));
+            Scene sceneHPD = new Scene(root,1000,525);
+            stage.setScene(sceneHPD);
+            sceneHPD.getStylesheets().add(getClass().getResource("/Graphics/AppCss/HomePageDiet.css").toExternalForm());
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);

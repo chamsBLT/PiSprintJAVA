@@ -12,19 +12,25 @@
 
 <AnchorPane id="AnchorPane" prefHeight="525.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.HomePageDietController">
    <children>
-      <Pane layoutY="-2.0" onMouseClicked="#resetValues" prefHeight="525.0" prefWidth="1000.0">
+      <Pane fx:id="backgroundPane" onMouseClicked="#resetValues" prefHeight="525.0" prefWidth="1000.0">
          <children>
-            <Button fx:id="downloadBtn" layoutX="69.0" layoutY="396.0" mnemonicParsing="false" onAction="#downloadpdf" prefHeight="26.0" prefWidth="150.0" text="Télécharger" />
-            <Button fx:id="transitionCRUD" layoutX="772.0" layoutY="449.0" mnemonicParsing="false" onAction="#transitionCRUDdiet" prefHeight="26.0" prefWidth="191.0" text="Gestion des régimes" />
-            <Button fx:id="btnClose" layoutX="772.0" layoutY="487.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="26.0" prefWidth="191.0" text="Fermer" />
-            <Text layoutX="82.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez choisir le nombre des calories pour le régimes que vous voulez suivre." wrappingWidth="124.55584716796875" />
-         </children></Pane>
+            <Pane fx:id="choicePane" layoutX="26.0" layoutY="14.0" prefHeight="500.0" prefWidth="226.0">
+               <children>
+                  <Text fx:id="MyTextZone" layoutX="18.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez choisir le nombre des calories pour le régimes que vous voulez suivre :" textAlignment="CENTER" wrappingWidth="191.0" />
+               </children></Pane>
+            <Button fx:id="downloadBtn" layoutX="69.0" layoutY="449.0" mnemonicParsing="false" onAction="#downloadpdf" prefHeight="26.0" prefWidth="150.0" text="Télécharger" />
+            <Button fx:id="transitionCRUD" layoutX="783.0" layoutY="449.0" mnemonicParsing="false" onAction="#transitionCRUDdiet" prefHeight="26.0" prefWidth="191.0" text="Gestion des régimes" />
+            <Button fx:id="btnClose" layoutX="783.0" layoutY="487.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="26.0" prefWidth="191.0" text="Fermer" />
+         </children>
+      </Pane>
+      <Pane fx:id="lunchPane" layoutX="647.0" layoutY="53.0" prefHeight="166.0" prefWidth="334.0" />
+      <Pane fx:id="dinnerPane" layoutX="261.0" layoutY="273.0" prefHeight="166.0" prefWidth="334.0" />
       <TextArea fx:id="tfLunchUser" editable="false" layoutX="763.0" layoutY="94.0" prefHeight="89.0" prefWidth="200.0" />
       <TextArea fx:id="tfDinnerUser" editable="false" layoutX="375.0" layoutY="319.0" prefHeight="90.0" prefWidth="200.0" />
       <TextArea fx:id="tfBreakfastUser" editable="false" layoutX="375.0" layoutY="94.0" prefHeight="90.0" prefWidth="200.0" />
       <TextArea fx:id="tfSnacksUser" editable="false" layoutX="763.0" layoutY="319.0" prefHeight="90.0" prefWidth="200.0" />
-      <Button fx:id="reroll" layoutX="68.0" layoutY="351.0" mnemonicParsing="false" onAction="#rerollDiet" prefHeight="26.0" prefWidth="150.0" text="Relancer" />
-      <ComboBox fx:id="CbCaloriesUser" layoutX="69.0" layoutY="258.0" prefHeight="26.0" prefWidth="150.0" />
+      <Button fx:id="reroll" layoutX="69.0" layoutY="287.0" mnemonicParsing="false" onAction="#rerollDiet" prefHeight="26.0" prefWidth="150.0" text="Relancer" />
+      <ComboBox fx:id="CbCaloriesUser" layoutX="69.0" layoutY="172.0" prefHeight="26.0" prefWidth="150.0" />
       <Label layoutX="375.0" layoutY="61.0" text="Petit déjeuner" />
       <Label layoutX="763.0" layoutY="284.0" text="Gouter" />
       <Label layoutX="375.0" layoutY="284.0" text="Diner" />
@@ -45,6 +51,6 @@
          <image>
             <Image url="@../../Graphics/snacks_icon.png" />
          </image></ImageView>
-      <Button fx:id="showDiet" layoutX="69.0" layoutY="306.0" mnemonicParsing="false" onAction="#rerollDiet" prefHeight="26.0" prefWidth="150.0" text="Confirmer" />
+      <Button fx:id="showDiet" layoutX="69.0" layoutY="249.0" mnemonicParsing="false" onAction="#rerollDiet" prefHeight="26.0" prefWidth="150.0" text="Confirmer" />
    </children>
 </AnchorPane>

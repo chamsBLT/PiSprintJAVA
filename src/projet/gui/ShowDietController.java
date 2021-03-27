@@ -30,6 +30,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import org.controlsfx.control.textfield.TextFields;
@@ -88,6 +89,12 @@ public class ShowDietController implements Initializable {
 
     @FXML
     private Button btnRetour;
+    @FXML
+    private Pane backgroundPane;
+    @FXML
+    private Pane recherchePane;
+    @FXML
+    private Pane fieldsPane;
 
     @FXML
     private void getSelectedDiet(MouseEvent event) {
@@ -318,7 +325,9 @@ public class ShowDietController implements Initializable {
             Parent root1 = (Parent) loader.load();
             Stage stage = new Stage();
             stage.setTitle("Gestion des ingredients");
-            stage.setScene(new Scene(root1));
+            Scene Icrud = new Scene(root1);
+            stage.setScene(Icrud);
+            Icrud.getStylesheets().add(getClass().getResource("/Graphics/AppCss/ShowIngredients.css").toExternalForm());
             stage.show();
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);

@@ -29,6 +29,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -36,6 +37,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import projet.entities.diet;
@@ -70,6 +73,16 @@ public class HomePageDietController implements Initializable {
     ObservableList<diet> listDu;
     @FXML
     private Button btnClose;
+    @FXML
+    private Pane backgroundPane;
+    @FXML
+    private Pane choicePane;
+    @FXML
+    private Pane lunchPane;
+    @FXML
+    private Pane dinnerPane;
+    @FXML
+    private Text MyTextZone;
 
     private void afficherComboBox() {
         calories_list.removeAll(calories_list);
@@ -105,20 +118,6 @@ public class HomePageDietController implements Initializable {
             tfLunchUser.setWrapText(true);
             tfDinnerUser.setWrapText(true);
             tfSnacksUser.setWrapText(true);
-        }
-    }
-
-    @FXML
-    private void transitionCRUDdiet(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowDiet.fxml"));
-            Parent root = (Parent) loader.load();
-            Stage stage = new Stage();
-            stage.setTitle("Gestion Diet");
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -197,16 +196,26 @@ public class HomePageDietController implements Initializable {
         }
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        afficherComboBox();
-
+    @FXML
+    private void transitionCRUDdiet(ActionEvent event) throws IOException {
+        Parent DcrudParent = FXMLLoader.load(getClass().getResource("ShowDiet.fxml"));
+        Scene DcrudScene = new Scene(DcrudParent);
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setScene(DcrudScene);
+        DcrudScene.getStylesheets().add(getClass().getResource("/Graphics/AppCss/ShowDiet.css").toExternalForm());
+        window.show();
     }
 
     @FXML
     private void closeWindow(ActionEvent event) {
         Stage stage = (Stage) btnClose.getScene().getWindow();
         stage.close();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        afficherComboBox();
+
     }
 
 }

@@ -22,6 +22,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import projet.entities.ingredient;
@@ -66,6 +67,10 @@ public class ShowIngredientsController implements Initializable {
     private TableColumn<ingredient, String> colIngCaloriesCategory;
     @FXML
     private ComboBox<String> cbIngCalorieCategory;
+    @FXML
+    private Pane backgroundPane;
+    @FXML
+    private Pane fieldsPane;
 
     private void afficherComboBox1() {
         category_list.removeAll(category_list);

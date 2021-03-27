@@ -1,0 +1,111 @@
+#choicePane{
+    -fx-background-color:  #2edf6e;
+    -fx-background-radius: 20;
+}
+#dinnerPane{
+    -fx-background-color:  #2edf6e;
+    -fx-background-radius: 20;
+}
+#lunchPane{
+    -fx-background-color:  #2edf6e;
+    -fx-background-radius: 20;
+}
+#backgroundPane{
+    -fx-background-color: linear-gradient(to bottom, #99ffbe, #6af09b);
+}
+
+
+#showDiet{
+    -fx-text-fill: #2edf6e;
+    -fx-background-color: #023796;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 5;    
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Ebrima";   
+    
+}
+#showDiet:hover {
+    -fx-background-color: #023796;
+    -fx-text-fill: white;
+}
+#reroll{
+    -fx-text-fill: #2edf6e;
+    -fx-background-color: #023796;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 5;    
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Ebrima";   
+    
+}
+#reroll:hover {
+    -fx-background-color: #023796;
+    -fx-text-fill: white;
+}
+#downloadBtn{
+    -fx-text-fill: #2edf6e;
+    -fx-background-color: #023796;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 5;    
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Ebrima";   
+    
+}
+#downloadBtn:hover {
+    -fx-background-color: #023796;
+    -fx-text-fill: white;
+}
+
+.button{
+    -fx-text-fill: #023796;
+    -fx-background-color: #2edf6e;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-padding: 5;    
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Ebrima";   
+}
+.button:hover {
+    -fx-background-color: #023796;
+    -fx-text-fill: #2edf6e;
+}
+
+
+.label{
+    -fx-text-fill: #023796;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Ebrima";  
+}
+
+
+#MyTextZone{
+    -fx-fill: #023796;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Ebrima";   
+}
+
+
+.combo-box {
+    -fx-background-radius: 20;
+}
+.list-cell:filled:selected:focused, .list-cell:filled:selected {
+    -fx-background-color: #023796;
+    -fx-text-fill: white;
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+}
+.list-cell:even {
+    -fx-background-color: white;
+}
+.list-cell:filled:hover {
+    -fx-background-color: #2edf6e;
+    -fx-text-fill: white;
+}
