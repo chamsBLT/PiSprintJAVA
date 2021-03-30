@@ -22,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -44,6 +45,12 @@ public class HomePageDashboardController implements Initializable {
     private Button Contactus;
     @FXML
     private Button FacebookPage;
+    @FXML
+    private Text T1;
+    @FXML
+    private Text T2;
+    @FXML
+    private Text T3;
 
     /**
      * Initializes the controller class.

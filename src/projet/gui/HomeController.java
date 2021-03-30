@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -56,7 +57,8 @@ public class HomeController implements Initializable {
             Parent root = (Parent) loader.load();
             Stage stage = new Stage();
             stage.setTitle("Sport");
-            Scene sceneHPW = new Scene(root,1000,525);
+            stage.getIcons().add(new Image("/Graphics/AppLogo.png"));
+            Scene sceneHPW = new Scene(root,1000,525);           
             stage.setScene(sceneHPW);
             sceneHPW.getStylesheets().add(getClass().getResource("/Graphics/AppCss/HomePageWorkout.css").toExternalForm());
             stage.show();
@@ -72,6 +74,7 @@ public class HomeController implements Initializable {
             Parent root = (Parent) loader.load();
             Stage stage = new Stage();
             stage.setTitle("Régime");
+            stage.getIcons().add(new Image("/Graphics/AppLogo.png"));
             Scene sceneHPD = new Scene(root,1000,525);
             stage.setScene(sceneHPD);
             sceneHPD.getStylesheets().add(getClass().getResource("/Graphics/AppCss/HomePageDiet.css").toExternalForm());

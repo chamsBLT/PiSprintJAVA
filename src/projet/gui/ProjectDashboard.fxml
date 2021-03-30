@@ -20,7 +20,7 @@
                         <Button fx:id="WorkoutandDiet" layoutY="205.0" mnemonicParsing="false" onAction="#LoadWorkoutandDiet" prefHeight="45.0" prefWidth="250.0" text="Sport &amp; Régime" />
                         <Button fx:id="button4" layoutX="-1.0" layoutY="299.0" mnemonicParsing="false" onAction="#LoadReservationandterrain" prefHeight="45.0" prefWidth="250.0" text="Terrains &amp; Réservation" />
                         <Button fx:id="button5" layoutY="346.0" mnemonicParsing="false" onAction="#LoadProduits" prefHeight="45.0" prefWidth="250.0" text="Produits" />
-                        <Button fx:id="button6" layoutX="-1.0" layoutY="393.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="250.0" text="Button" />
+                        <Button fx:id="button6" layoutX="-1.0" layoutY="393.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="250.0" text="Evenements" />
                         <Button fx:id="button3" layoutY="252.0" mnemonicParsing="false" onAction="#LoadCommentandsubject" prefHeight="45.0" prefWidth="250.0" text="Commentaires &amp; Sujets" />
                         <Button fx:id="button7" layoutY="440.0" mnemonicParsing="false" onAction="#LoadUsers" prefHeight="45.0" prefWidth="250.0" text="Users" />
                         <ImageView fx:id="AppLogo" fitHeight="157.0" fitWidth="220.0" layoutX="19.0" pickOnBounds="true" preserveRatio="true">

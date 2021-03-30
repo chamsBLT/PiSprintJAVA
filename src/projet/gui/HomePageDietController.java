@@ -159,16 +159,16 @@ public class HomePageDietController implements Initializable {
                 document.add(paraHeader2);
 
                 Image imageBreakfast = Image.getInstance("src\\Graphics\\breakfast_icon.png");
-                Paragraph paraBreakfast = new Paragraph("Breakfast : \n\n" + tfBreakfastUser.getText());
+                Paragraph paraBreakfast = new Paragraph("Petit déjeuner : \n\n" + tfBreakfastUser.getText());
 
                 Image imageLunch = Image.getInstance("src\\Graphics\\lunch_icon.png");
-                Paragraph paraLunch = new Paragraph("Lunch : \n\n" + tfLunchUser.getText());
+                Paragraph paraLunch = new Paragraph("Déjeuner : \n\n" + tfLunchUser.getText());
 
                 Image imageDinner = Image.getInstance("src\\Graphics\\dinner_icon.png");
-                Paragraph paraDinner = new Paragraph("Dinner : \n\n" + tfDinnerUser.getText());
+                Paragraph paraDinner = new Paragraph("Diner : \n\n" + tfDinnerUser.getText());
 
                 Image imageSnacks = Image.getInstance("src\\Graphics\\snacks_icon.png");
-                Paragraph paraSnacks = new Paragraph("Snacks : \n\n " + tfSnacksUser.getText());
+                Paragraph paraSnacks = new Paragraph("Gouter : \n\n " + tfSnacksUser.getText());
 
                 float[] pointColumnWidths = {2, 10};
                 PdfPTable table = new PdfPTable(pointColumnWidths);
@@ -182,6 +182,9 @@ public class HomePageDietController implements Initializable {
                 table.addCell(imageSnacks);
                 table.addCell(paraSnacks);
                 document.add(table);
+                
+                Paragraph paraEnd = new Paragraph("\n\n\n\n\n\n\n Merci d'avoir choisi Sportinus.");
+                document.add(paraEnd);
 
                 document.close();
                 try {

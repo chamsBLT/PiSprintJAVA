@@ -12,7 +12,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
@@ -30,7 +32,9 @@ public class StartPoint extends Application {
 
             primaryStage.setTitle("Sportunus App");
             primaryStage.setScene(scene);
+            primaryStage.getIcons().add(new Image("/Graphics/AppLogo.png"));
             scene.getStylesheets().add(getClass().getResource("/Graphics/AppCss/home.css").toExternalForm());
+            primaryStage.initStyle(StageStyle.UNDECORATED);
             primaryStage.show();
         } catch (IOException ex) {
             Logger.getLogger(StartPoint.class.getName()).log(Level.SEVERE, null, ex);

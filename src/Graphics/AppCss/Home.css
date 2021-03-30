@@ -229,3 +229,31 @@ VBox{
     -fx-background-insets: 0, 0 0 1 0;
     -fx-padding: 0.0em;
 }
+
+.label{
+    -fx-text-fill: #023796;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Ebrima";  
+}
+
+#T1{
+    -fx-fill: #023796;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Ebrima";  
+}
+#T2{
+    -fx-fill: #023796;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Ebrima";  
+}
+
+#T3{
+    -fx-fill: #023796;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Ebrima";  
+}
+

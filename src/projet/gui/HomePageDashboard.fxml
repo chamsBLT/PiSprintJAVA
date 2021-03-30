@@ -5,6 +5,8 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="550.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="projet.gui.HomePageDashboardController">
    <children>
@@ -17,8 +19,17 @@
                   <Image url="@../../Graphics/Sportunus_logo.png" />
                </image>
             </ImageView>
-            <Button fx:id="Contactus" layoutX="500.0" layoutY="288.0" mnemonicParsing="false" onAction="#ContactUsTransition" text="Contactez nous" />
-            <Button fx:id="FacebookPage" layoutX="259.0" layoutY="288.0" mnemonicParsing="false" onAction="#FacebookTransition" text="Page Facebook" />
+            <Button fx:id="Contactus" layoutX="437.0" layoutY="438.0" mnemonicParsing="false" onAction="#ContactUsTransition" text="Contactez nous">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Button>
+            <Button fx:id="FacebookPage" layoutX="288.0" layoutY="438.0" mnemonicParsing="false" onAction="#FacebookTransition" text="Page Facebook">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font></Button>
+            <Text fx:id="T1" fill="#6c5353" layoutX="48.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sportunus est une application Gratuite qui se concentrer sur le sport, des régimes personnalisés et votre bien-être." textAlignment="CENTER" wrappingWidth="754.520263671875" />
+            <Text fx:id="T2" layoutX="63.0" layoutY="259.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous pouver participez à des événements ou acheter des équipements sportifs à partir de Sportunus, réserver des terrains pour n'importe quel sport et même participer à des sujets poser par des autres membres." textAlignment="CENTER" wrappingWidth="724.1839599609375" />
+            <Text fx:id="T3" layoutX="15.0" layoutY="394.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous pouvez toujours rester en contact avec nous soit par visiter notre page Facebook ou par nous contacter." textAlignment="CENTER" />
          </children>
       </Pane>
    </children>

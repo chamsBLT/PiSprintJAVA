@@ -29,6 +29,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -319,22 +320,6 @@ public class ShowDietController implements Initializable {
     }
 
     @FXML
-    private void CRUDIngTransition(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowIngredients.fxml"));
-            Parent root1 = (Parent) loader.load();
-            Stage stage = new Stage();
-            stage.setTitle("Gestion des ingredients");
-            Scene Icrud = new Scene(root1);
-            stage.setScene(Icrud);
-            Icrud.getStylesheets().add(getClass().getResource("/Graphics/AppCss/ShowIngredients.css").toExternalForm());
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    @FXML
     private void closeWindow(ActionEvent event) {
         Stage stage = (Stage) btnRetour.getScene().getWindow();
         stage.close();
@@ -348,6 +333,23 @@ public class ShowDietController implements Initializable {
         tfLunch.setText(null);
         tfSnacks.setText(null);
         cbCalories.setValue(null);
+    }
+
+    @FXML
+    private void CRUDIngTransition(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ShowIngredients.fxml"));
+            Parent root1 = (Parent) loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("Gestion des ingredients");
+            stage.getIcons().add(new Image("/Graphics/AppLogo.png"));
+            Scene Icrud = new Scene(root1);
+            stage.setScene(Icrud);
+            Icrud.getStylesheets().add(getClass().getResource("/Graphics/AppCss/ShowIngredients.css").toExternalForm());
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
