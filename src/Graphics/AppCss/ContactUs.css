@@ -1,0 +1,42 @@
+.root{
+    -fx-background-color: #023796;
+}
+
+#btnSend{
+    -fx-text-fill: #2edf6e;
+    -fx-background-color: #023796;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+#btnSend:hover{
+    -fx-background-color:linear-gradient(to bottom, #99ffbe, #6af09b);
+    -fx-text-fill: #023796;
+}
+
+#btnClose{
+    -fx-text-fill: #2edf6e;
+    -fx-background-color: #023796;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+#btnClose:hover{
+    -fx-background-color:#2edf6e;
+    -fx-text-fill: #023796;
+}
+
+#ContactUsPane{
+    -fx-background-color:linear-gradient(to bottom, #99ffbe, #6af09b); 
+    -fx-border-radius: 20;
+    -fx-background-radius: 20;
+    -fx-border-color:#023796;
+}
+.label{
+    -fx-text-fill: #023796;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Ebrima";  
+}
+
+.text-field{
+    -fx-background-radius: 20;
+}

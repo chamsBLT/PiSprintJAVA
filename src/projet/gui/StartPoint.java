@@ -24,7 +24,7 @@ public class StartPoint extends Application {
     public void start(Stage primaryStage) {
 
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("ProjectDashboard.fxml"));
 
             Scene scene = new Scene(root);
 
