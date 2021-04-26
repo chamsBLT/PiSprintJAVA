@@ -7,7 +7,6 @@ package projet.tests;
 
 import javafx.collections.ObservableList;
 import projet.entities.diet;
-import projet.services.ingredientCRUD;
 import projet.services.dietCRUD;
 import projet.tools.MyConnection;
 
