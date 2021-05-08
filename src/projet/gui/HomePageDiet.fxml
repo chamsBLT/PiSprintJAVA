@@ -18,7 +18,7 @@
                <children>
                   <Text fx:id="MyTextZone" layoutX="18.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Veuillez choisir le nombre des calories pour le régimes que vous voulez suivre :" textAlignment="CENTER" wrappingWidth="191.0" />
                </children></Pane>
-            <Button fx:id="downloadBtn" layoutX="69.0" layoutY="449.0" mnemonicParsing="false" onAction="#downloadpdf" prefHeight="26.0" prefWidth="150.0" text="Télécharger" />
+            <Button fx:id="downloadBtn" layoutX="69.0" layoutY="449.0" mnemonicParsing="false" onAction="#downloadpdf" prefHeight="26.0" prefWidth="150.0" text="Télécharger Pdf" />
             <Button fx:id="transitionCRUD" layoutX="783.0" layoutY="449.0" mnemonicParsing="false" onAction="#transitionCRUDdiet" prefHeight="26.0" prefWidth="191.0" text="Gestion des régimes" />
             <Button fx:id="btnClose" layoutX="783.0" layoutY="487.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="26.0" prefWidth="191.0" text="Fermer" />
          </children>
